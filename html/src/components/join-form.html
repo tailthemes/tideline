@@ -1,0 +1,76 @@
+{# The one form in the theme, and the only interactive thing on the site.
+
+   It is a real `<form>` with a real `<label>`, so with the script absent it
+   still submits to wherever the buyer points `action` — progressive
+   enhancement, not a div that needs JavaScript to be a form at all.
+
+   The `data-part` attributes are the library's markup contract
+   (`html/src/js/_tt/field.js`): `mountField` writes `aria-invalid` and composes
+   `aria-describedby`, and it owns the single message line's precedence. The
+   theme's own module adds only what the library does not have — the submit
+   state machine and the durable success panel.
+
+   `id` namespaces the field because this partial is included twice on some
+   routes, and duplicate ids are a defect the semantic pass fails on. #}
+{# Both controls read `--control-height`. Left to their own padding the
+   input came out 54.8px and the button 44.8px — the input sets 16px text
+   and the button 12px mono — which reads as a mistake at any width. #}
+{% set formId = id | default("join") %}
+
+<div data-join class="{{ class | default('') }}">
+  <form data-join-form novalidate action="#" method="post">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start">
+      <div data-part="field" data-state="rest" class="flex flex-1 flex-col gap-2">
+        <label
+          for="{{ formId }}-email"
+          data-part="field-label"
+          class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase {% if tone == 'plate' %}sr-only{% else %}text-muted-foreground{% endif %}"
+          >Email address</label
+        >
+        <div data-part="field-control">
+          <input
+            id="{{ formId }}-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            class="h-(--control-height) w-full rounded-themed border border-(--field-border) bg-(--field) px-4 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+          >
+        </div>
+        <p
+          id="{{ formId }}-email-message"
+          data-part="field-message"
+          class="text-(length:--text-small) leading-(--leading-small)"
+        ></p>
+      </div>
+
+      <button
+        type="submit"
+        class="h-(--control-height) inline-flex shrink-0 items-center justify-center rounded-themed bg-primary px-6 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground hover:bg-(--primary-hover) active:bg-(--primary-active) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) motion-safe:active:scale-[0.98]"
+      >
+        <span data-join-label>Join the list</span>
+      </button>
+    </div>
+  </form>
+
+  {# The durable success panel. Not a toast: what it says is the position on the
+     list, which is the one fact the visitor came for, and a message that
+     removes itself after four seconds is the wrong shape for a number somebody
+     may want to screenshot. #}
+  <div
+    data-join-done
+    hidden
+    class="rounded-themed border border-(--primary-border) bg-(--primary-soft) px-5 py-4"
+  >
+    <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+      You are on the list
+    </p>
+    <p class="mt-2 text-(length:--text-body) leading-(--leading-body) text-foreground">
+      Check your inbox — there is one email there asking you to confirm, and nothing else
+      happens until you do.
+    </p>
+    <p class="mt-3 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+      You are number {{ derived.nextPlace }}.
+    </p>
+  </div>
+</div>

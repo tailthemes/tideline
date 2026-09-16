@@ -1,0 +1,78 @@
+{# Four rooms at four stages, in the order the building goes through them — the
+   build log's argument made in pictures rather than in dates.
+
+   Each plate settles from 1.12 to 1 as it enters (`tideline-settle`, defined in
+   `src/theme.css`). Small on purpose: a photograph that breathes reads as a
+   photograph, one that zooms reads as a slideshow, and this page already has
+   enough happening. #}
+
+{% import "components/badge.html" as b %}
+{% set states = [
+  { "img": "tl-room-stair.jpg", "stage": "Shell",
+    "alt": "A narrow stone staircase in the unfinished house, bare plaster walls, worn oak treads, a small window part way up throwing a hard rectangle of light.",
+    "title": "The stair, which is the whole problem",
+    "body": "This is why there is no lift and why the access statement says what it says. The core is the building; taking it out is not something the building survives." },
+  { "img": "tl-room-window.jpg", "stage": "Plastered",
+    "alt": "A deep-set stone window reveal in a bare plastered room looking out over the estuary at low water, the sill worn oak, the room dark around the bright opening.",
+    "title": "Plastered, and nothing else yet",
+    "body": "Three coats of lime and a week between each. The window was there before we were; the sill is the one piece of oak in the house we did not buy." },
+  { "img": "tl-room-kitchen.jpg", "stage": "Fitted",
+    "alt": "A long run of unfinished oak kitchen cabinetry against a plastered wall, no doors hung, a deep stone sink set in, a folded dust sheet on the worktop.",
+    "title": "Fitted: the run, no doors",
+    "body": "Eleven feet, one run, no island — the room is eleven feet wide and an island would be a wall. Commissioned in June from a workshop in Machynlleth." },
+  { "img": "tl-room-bed.jpg", "stage": "Furnished",
+    "alt": "A finished bedroom: one low oak bed with an undyed wool blanket folded across it, bare plaster walls, a deep window onto the estuary, nothing else in the room.",
+    "title": "Furnished, which means finished",
+    "body": "A bed, a blanket, a window and a floor. If it looks like something is missing, nothing is — this is the whole specification." }
+] %}
+
+<section aria-labelledby="states" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Four stages</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <div class="mt-5 flex flex-wrap items-end justify-between gap-6">
+        <h2
+          id="states"
+          class="max-w-[20ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+        >
+          What each stage actually looks like
+        </h2>
+        <p class="max-w-[34ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+          <span class="tabular-nums">{{ derived.plastered }}</span> of the
+          <span class="tabular-nums">{{ derived.total }}</span> are past the second of
+          these. Three are past the last.
+        </p>
+      </div>
+    </div>
+
+    <ol class="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2">
+      {% for state in states %}
+      <li data-tl-reveal>
+        <figure>
+          <div class="overflow-hidden rounded-themed">
+            <img
+              src="{{ root }}assets/img/{{ state.img }}"
+              alt="{{ state.alt }}"
+              width="1600"
+              height="1067"
+              class="tideline-settle aspect-[3/2] w-full object-cover will-change-transform"
+            >
+          </div>
+          <figcaption class="mt-5">
+            {{ b.badge(state.stage, "marked" if state.stage == "Furnished" else "quiet", b.stageGlyph[state.stage]) }}
+            <p class="mt-3 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+              {{ state.title }}
+            </p>
+            <p class="mt-3 max-w-[44ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+              {{ state.body }}
+            </p>
+          </figcaption>
+        </figure>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

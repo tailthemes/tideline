@@ -1,0 +1,121 @@
+/* ---------------------------------------------------------------------------
+   Tideline — HTML edition stylesheet.
+
+   It decides nothing. Every colour, size, radius, duration and face is
+   imported from `themes/tideline/src/theme.css`, the one file that owns the
+   system for both editions (ADR-012: editions share token values, fonts and
+   canonical facts; they do not share markup or interaction code). A rebrand
+   edits that file and both editions move together — this one is recompiled.
+
+   What lives here and nowhere else:
+   1. the Tailwind bridge, so `bg-card` and `text-muted-foreground` resolve to
+      the same variables the React edition uses;
+   2. six `@font-face` rules pointing at the woff2 files copied beside this
+      sheet — no network request, no font CDN, no `next/font`;
+   3. the few document-level rules a framework-free page has to state itself.
+--------------------------------------------------------------------------- */
+
+@import "tailwindcss";
+@import "../../../src/theme.css";
+@source "../**/*.html";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-hairline: var(--hairline);
+  --color-ring: var(--ring);
+  --radius-themed: var(--radius);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* The three families the React edition loads through `next/font/local`,
+   declared the way a static page has to declare them. The files sit in
+   `dist/assets/fonts/` with their SIL Open Font License texts beside them.
+
+   Spectral ships two faces, roman and italic, both at 400. It was four until
+   the screenshot gate pointed out that an undemanded weight is an unloaded
+   face; the mode compensation moved to tracking (see `src/fonts.ts`). Manrope
+   and Martian Mono are variable, one file each. */
+@font-face {
+  font-family: "Spectral Tideline";
+  src: url("./fonts/Spectral-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Spectral Tideline";
+  src: url("./fonts/Spectral-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Tideline";
+  src: url("./fonts/Manrope-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Martian Mono Tideline";
+  src: url("./fonts/MartianMono-Variable.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* `src/theme.css` reads the three families through these variables, exactly as
+   the React edition's `fonts.ts` sets them. The fallback stacks stay in that
+   file, so both editions degrade to the same faces. */
+:root,
+.tt-tideline {
+  --font-tideline-display: "Spectral Tideline";
+  --font-tideline-text: "Manrope Tideline";
+  --font-tideline-mono: "Martian Mono Tideline";
+}
+
+/* Dark is this theme's default, so the bare state is dark and `.light` is the
+   opt-in — the mirror image of every other theme in the catalog, and the
+   reason the pre-paint script below adds a class rather than removing one. */
+html {
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
+}
+
+button,
+summary,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* One icon shows at a time in the mode toggle; the class on <html> picks it,
+   so the correct glyph is painted before any script runs. */
+html:not(.light) [data-mode-icon="light"],
+html.light [data-mode-icon="dark"] {
+  display: none;
+}
+
+/* The mobile disclosure's marker swap, and the FAQ's, without a script. */
+details[open] [data-marker="closed"],
+details:not([open]) [data-marker="open"] {
+  display: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}

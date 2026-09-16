@@ -1,0 +1,67 @@
+{# The chroma-keyed brass tag, floating, with its room number set in HTML over
+   it. The number is not in the PNG: one file instead of eleven, a real
+   character rather than pixels, and something a buyer can rebrand. The contact
+   shadow is `--shadow-cutout` in CSS, so the same file sits correctly on both
+   grounds — flattening it onto a background breaks light mode. #}
+{% import "components/badge.html" as b %}
+{% set level = roomIndexLevel | default(2) %}
+<section aria-labelledby="{{ headingId | default('rooms') }}" class="pb-20 sm:pb-28">
+  <div class="mx-auto grid w-full max-w-[84rem] items-center gap-10 px-6 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+    <div data-tl-reveal class="order-2 lg:order-1">
+      <div class="relative mx-auto w-2/3 max-w-xs lg:w-3/4">
+        <img
+          src="{{ root }}assets/img/tl-key.png"
+          alt="A brass room tag on a worn leather fob with one iron key, photographed from above."
+          width="1200"
+          height="1200"
+          class="w-full drop-shadow-(--shadow-cutout)"
+        >
+        <span
+          aria-hidden="true"
+          class="absolute left-[50.5%] top-[55%] -translate-x-1/2 -translate-y-1/2 rotate-[-1.5deg] font-mono tabular-nums text-(length:--text-d2) text-[color-mix(in_oklab,var(--primary-foreground)_78%,transparent)] mix-blend-multiply"
+          >{{ featuredRoom.number }}</span
+        >
+      </div>
+    </div>
+
+    <div data-tl-reveal class="order-1 lg:order-2">
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The rooms</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+
+      {% if level == 1 %}
+      <h1
+        id="{{ headingId | default('rooms') }}"
+        class="mt-5 text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground"
+      >
+        Eleven tags on eleven hooks
+      </h1>
+      {% else %}
+      <h2
+        id="{{ headingId | default('rooms') }}"
+        class="mt-5 text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        Eleven tags on eleven hooks
+      </h2>
+      {% endif %}
+
+      <p class="mt-5 max-w-[40ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Every room has a name, a gable and a stage it has got to.
+        <span class="tabular-nums">{{ derived.spokenFor }}</span> of the {{ derived.total }}
+        are spoken for by the people who funded the roof.
+      </p>
+
+      <ul class="mt-8 flex flex-wrap gap-2">
+        {% for room in rooms %}
+        <li>
+          {{ b.badgeLink(room.number + " " + room.name, root + "rooms/#room-" + room.number, "marked" if room.wave == 1 else "quiet") }}
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+        Marked rooms are wave one — furnished and released first.
+      </p>
+    </div>
+  </div>
+</section>

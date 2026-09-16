@@ -1,0 +1,27 @@
+<section aria-labelledby="join" class="border-t border-hairline bg-(--surface-sunken) py-20 sm:py-24">
+  <div class="mx-auto grid w-full max-w-[84rem] gap-10 px-6 sm:px-10 lg:grid-cols-2 lg:items-end lg:gap-16">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Opening {{ house.opensShort }}</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="join"
+        class="mt-5 max-w-[16ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        Nothing to book. A list to be on.
+      </h2>
+      <p class="mt-5 max-w-[44ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Five emails over the next year, and then an invitation forty-eight hours before
+        anybody else gets one.
+      </p>
+    </div>
+
+    <div data-tl-reveal>
+      {% include "components/join-form.html" %}
+      <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+        {{ derived.listCount }} ahead of you · {{ derived.plasteredOf }} rooms plastered
+      </p>
+    </div>
+  </div>
+</section>

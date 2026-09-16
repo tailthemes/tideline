@@ -1,0 +1,309 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+{# The living styleguide, HTML edition. Ships in the buyer's zip and is what
+   the marketplace's parts catalogue reads.
+
+   Every `data-component` is written out literally at its own frame, because the
+   parity check is a source scan: an attribute assembled by a macro would be
+   invisible to it, and a part would ship, be charged for, and be unseeable in
+   the catalogue with nothing failing. #}
+<div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+  <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+    <span>The system</span>
+    <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+  </p>
+  <h1 class="mt-5 max-w-[18ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground">
+    Every part, in every state it ships in
+  </h1>
+  <p class="mt-6 max-w-[54ch] text-pretty text-(length:--text-lead) leading-(--leading-lead) text-muted-foreground">
+    The specimens below are the components themselves holding the props, not pictures of
+    them. A state shown here is a state that exists.
+  </p>
+</div>
+
+{# ── tokens ───────────────────────────────────────────────────────────────
+   The combined `tokens` and `ui` frames are what the screenshot pipeline
+   photographs for the marketplace's parts catalogue; the per-part frames inside
+   them are the detail shots. #}
+<section data-component="tokens">
+<div class="mx-auto mt-20 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">
+    Tokens
+  </h2>
+
+  <div class="mt-10 grid gap-12 lg:grid-cols-2">
+    <div>
+      <h3 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+        The materials
+      </h3>
+      <p class="mt-3 max-w-[42ch] text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+        Five samples, each carrying the token it is. The swatch and the photograph on the
+        board are the same decision.
+      </p>
+      <div class="mt-6 border-t border-hairline">
+        {% for material in materials %}
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var({{ material.token }})"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">{{ material.name }} · {{ material.code }}</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">{{ material.source }}</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">{{ material.token }}</code>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+        The surfaces
+      </h3>
+      <p class="mt-3 max-w-[42ch] text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+        Dark is the default ground. In light mode brass is a fill and never a graphic —
+        <code class="font-mono">--primary-ink</code> is what a rule or a mark uses, and
+        <code class="font-mono">--plate-ink</code> is what sits on a photograph, because the
+        photographs do not invert.
+      </p>
+      {% set surfaces = [
+        { "token": "--background", "name": "Page", "detail": "the ground" },
+        { "token": "--card", "name": "Card", "detail": "panels, email frames" },
+        { "token": "--surface-sunken", "name": "Sunken", "detail": "the join seam" },
+        { "token": "--primary", "name": "Brass", "detail": "fills only in light mode" },
+        { "token": "--primary-ink", "name": "Brass ink", "detail": "rules, marks, links" },
+        { "token": "--plate-ink", "name": "Plate ink", "detail": "type on a photograph — same in both modes" },
+        { "token": "--hairline", "name": "Hairline", "detail": "every band divider" }
+      ] %}
+      <div class="mt-6 border-t border-hairline">
+        {% for surface in surfaces %}
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var({{ surface.token }})"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">{{ surface.name }}</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">{{ surface.detail }}</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">{{ surface.token }}</code>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-16 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+    The ladder · ratio 1.500
+  </h3>
+  {% set ladder = [
+    { "name": "d4", "size": "5.0625rem", "cls": "text-(length:--text-d4) leading-(--leading-d4) tracking-(--tracking-d4)" },
+    { "name": "d3", "size": "3.375rem", "cls": "text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3)" },
+    { "name": "d2", "size": "2.25rem", "cls": "text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2)" },
+    { "name": "d1", "size": "1.5rem", "cls": "text-(length:--text-d1) leading-(--leading-d1) tracking-(--tracking-d1)" }
+  ] %}
+  <div class="mt-6 flex flex-col gap-5 border-t border-hairline pt-8">
+    {% for step in ladder %}
+    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+      <span class="w-10 shrink-0 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">{{ step.name }}</span>
+      <span class="font-(family-name:--font-display) font-(number:--weight-display) {{ step.cls }} text-foreground">Above the estuary</span>
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">{{ step.size }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+</section>
+
+{# ── parts ──────────────────────────────────────────────────────────────── #}
+<section data-component="ui">
+<div class="mx-auto mt-24 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">
+    Parts
+  </h2>
+
+  <section data-component="ui/button" class="mt-10 border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/button</h3>
+    <div class="flex flex-wrap items-center gap-4 pb-12">
+      <button type="button" class="inline-flex items-center justify-center rounded-themed bg-primary px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground hover:bg-(--primary-hover) active:bg-(--primary-active) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">Join the list</button>
+      <button type="button" class="inline-flex items-center justify-center rounded-themed border border-(--control-border) px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">The build log</button>
+      <button type="button" disabled class="inline-flex cursor-not-allowed items-center justify-center rounded-themed bg-primary px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground opacity-50">Joining…</button>
+    </div>
+  </section>
+
+  {# One pane per state the part declares. The check looks for each `data-state`
+     in this frame's text, because a state only reachable by typing is a state
+     no capture has ever seen. #}
+  <section data-component="ui/field" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/field</h3>
+    <div class="grid gap-8 pb-12 sm:grid-cols-2">
+      {% set specimens = [
+        { "id": "sg-rest", "state": "rest", "message": "", "kind": "", "value": "", "attrs": "" },
+        { "id": "sg-desc", "state": "rest", "message": "We send five emails, then an invitation.", "kind": "description", "value": "", "attrs": "" },
+        { "id": "sg-invalid", "state": "invalid", "message": "That does not look like an email address. Check it and try again.", "kind": "error", "value": "hello@", "attrs": "aria-invalid=\"true\"" },
+        { "id": "sg-valid", "state": "valid", "message": "Confirmed. You are number " + derived.nextPlace + ".", "kind": "success", "value": "you@example.com", "attrs": "" },
+        { "id": "sg-readonly", "state": "read-only", "message": "Set when you confirmed. Write to us to change it.", "kind": "description", "value": "you@example.com", "attrs": "readonly" },
+        { "id": "sg-disabled", "state": "disabled", "message": "", "kind": "", "value": "", "attrs": "disabled" }
+      ] %}
+      {% for spec in specimens %}
+      <div data-part="field" data-state="{{ spec.state }}" class="flex flex-col gap-2">
+        <label for="{{ spec.id }}" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="{{ spec.id }}"
+            type="email"
+            value="{{ spec.value }}"
+            placeholder="you@example.com"
+            {{ spec.attrs | safe }}
+            {% if spec.message %}aria-describedby="{{ spec.id }}-message"{% endif %}
+            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+        {% if spec.message %}
+        <p id="{{ spec.id }}-message" data-part="field-message" data-kind="{{ spec.kind }}" class="text-(length:--text-small) leading-(--leading-small) {% if spec.kind == 'error' %}text-(--critical){% elif spec.kind == 'success' %}text-(--positive){% else %}text-muted-foreground{% endif %}">{{ spec.message }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section data-component="ui/accordion-disclosure" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/accordion-disclosure</h3>
+    <div class="max-w-2xl border-t border-hairline pb-12">
+      <div data-state="open">
+        <details class="border-b border-hairline" open>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+            <h4 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">Can I book a room?</h4>
+            <span aria-hidden="true" class="shrink-0 text-(--primary-ink)"><span data-marker="closed">+</span><span data-marker="open">−</span></span>
+          </summary>
+          <p class="pb-6 pr-10 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">No. Nothing is bookable and there is no deposit to pay.</p>
+        </details>
+      </div>
+      <div data-state="closed">
+        <details class="border-b border-hairline">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+            <h4 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">What does joining cost?</h4>
+            <span aria-hidden="true" class="shrink-0 text-(--primary-ink)"><span data-marker="closed">+</span><span data-marker="open">−</span></span>
+          </summary>
+          <p class="pb-6 pr-10 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">Nothing, and it never will.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section data-component="ui/eyebrow" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/eyebrow</h3>
+    <div class="flex max-w-md flex-col gap-5 pb-12">
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Opening {{ house.opensShort }} · the list is open</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <div class="bg-(--surface-sunken) p-5">
+        <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--plate-ink-brass)">
+          <span>The same eyebrow, on a plate</span>
+          <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section data-component="ui/stat" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/stat</h3>
+    <dl class="flex flex-wrap gap-14 pb-12">
+      <div>
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Rooms plastered</dt>
+        <dd class="mt-2.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) tabular-nums text-foreground">{{ derived.plasteredOf }}</dd>
+      </div>
+      <div>
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">First season</dt>
+        <dd class="mt-2.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) tabular-nums text-foreground">{{ house.firstSeasonInvites }} <span class="text-(length:--text-body) text-muted-foreground">invitations</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section data-component="join-form" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">join-form</h3>
+    <div class="max-w-lg pb-12">
+      {% set id = "styleguide" %}
+      {% set tone = "page" %}
+      {% include "components/join-form.html" %}
+    </div>
+  </section>
+</div>
+
+</section>
+
+{# ── sections ───────────────────────────────────────────────────────────── #}
+<div class="mx-auto mt-24 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">Sections</h2>
+  <p class="mt-4 max-w-[54ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+    Each one at full width, in the order a visitor meets it.
+  </p>
+</div>
+
+<div class="mt-12">
+  <section data-component="materials-board">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">materials-board</p>
+    </div>
+    {% set headingId = "sg-board" %}
+    {% set heading = "The palette is a photograph of the building" %}
+    {% include "components/materials-board.html" %}
+  </section>
+
+  <section data-component="room-index">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">room-index</p>
+    </div>
+    {% set headingId = "sg-rooms" %}
+    {% set roomIndexLevel = 2 %}
+    {% include "components/room-index.html" %}
+  </section>
+
+  <section data-component="updates-feed">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">updates-feed</p>
+    </div>
+    {% set headingId = "sg-updates" %}
+    {% set updatesLevel = 2 %}
+    {% set updateLimit = 1 %}
+    {% include "components/updates-feed.html" %}
+  </section>
+
+  <section data-component="email-sequence">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">email-sequence</p>
+    </div>
+    {% set headingId = "sg-emails" %}
+    {% set emailsLevel = 2 %}
+    {% set emailLimit = 3 %}
+    {% include "components/email-sequence.html" %}
+  </section>
+
+  <section data-component="access-note">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">access-note</p>
+    </div>
+    {% include "components/access-note.html" %}
+  </section>
+
+  <section data-component="join-seam">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">join-seam</p>
+    </div>
+    {% include "components/join-seam.html" %}
+  </section>
+
+  <section data-component="site-header">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">site-header</p>
+      <p class="pb-12 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        At the top of this page, and of every route. It carries two ink registers — on a
+        photograph, and on a token ground.
+      </p>
+    </div>
+  </section>
+
+  <section data-component="site-footer">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">site-footer</p>
+    </div>
+  </section>
+</div>
+{% endblock %}

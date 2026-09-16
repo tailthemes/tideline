@@ -1,0 +1,532 @@
+{
+  "site": {
+    "storageKey": "tideline-mode"
+  },
+  "house": {
+    "name": "Marram",
+    "where": "Dyfi estuary, Gwynedd",
+    "station": "Penhelyg",
+    "opens": "May 2027",
+    "opensShort": "May 2027",
+    "listCount": 1204,
+    "firstSeasonInvites": 40,
+    "waves": [
+      {
+        "wave": 1,
+        "when": "February",
+        "what": "Everyone on the list, forty-eight hours early.",
+        "rooms": 3
+      },
+      {
+        "wave": 2,
+        "when": "April",
+        "what": "The remaining rooms, list first, then public.",
+        "rooms": 5
+      },
+      {
+        "wave": 3,
+        "when": "Not yet",
+        "what": "The second floor, when it is finished.",
+        "rooms": 3
+      }
+    ],
+    "tideRange": "4.1m",
+    "walkToWater": "600m"
+  },
+  "derived": {
+    "total": 11,
+    "plastered": 7,
+    "plasteredOf": "7 of 11",
+    "spokenFor": 3,
+    "sleeps": 25,
+    "listCount": "1,204",
+    "nextPlace": "1,205"
+  },
+  "materials": [
+    {
+      "key": "slate",
+      "name": "Riven slate",
+      "code": "DS-04",
+      "token": "--material-slate",
+      "source": "Ffestiniog, 34 miles",
+      "note": "Roof and the four window sills that take weather."
+    },
+    {
+      "key": "oak",
+      "name": "Oiled oak",
+      "code": "OO-12",
+      "token": "--material-oak",
+      "source": "Powys, air-dried four years",
+      "note": "Floors throughout, and the long table."
+    },
+    {
+      "key": "wool",
+      "name": "Oatmeal wool",
+      "code": "OW-07",
+      "token": "--material-wool",
+      "source": "Trefriw mill",
+      "note": "Blankets and the stair runner. Undyed."
+    },
+    {
+      "key": "plaster",
+      "name": "Lime plaster",
+      "code": "LP-01",
+      "token": "--material-plaster",
+      "source": "Mixed on site",
+      "note": "Every wall. It moves with the building instead of cracking."
+    },
+    {
+      "key": "brass",
+      "name": "Polished brass",
+      "code": "BP-09",
+      "token": "--material-brass",
+      "source": "Birmingham, unlacquered",
+      "note": "Handles, hooks, and the eleven room tags."
+    }
+  ],
+  "rooms": [
+    {
+      "number": "01",
+      "name": "Cocklers",
+      "where": "Ground, east end",
+      "aspect": "East, over the saltings",
+      "area": 19,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "furnished",
+      "wave": 1,
+      "materials": [
+        "oak",
+        "plaster",
+        "brass"
+      ],
+      "note": "The first room finished, because it is the one the plasterer wanted to practise on.",
+      "stageLabel": "Furnished"
+    },
+    {
+      "number": "02",
+      "name": "Ferryman",
+      "where": "Ground, east end",
+      "aspect": "East, over the saltings",
+      "area": 17,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "furnished",
+      "wave": 1,
+      "materials": [
+        "oak",
+        "plaster",
+        "wool"
+      ],
+      "note": "Step-free from the yard door. The only ground-floor room that is.",
+      "stageLabel": "Furnished"
+    },
+    {
+      "number": "03",
+      "name": "Saltings",
+      "where": "Ground, north",
+      "aspect": "North, into the hill",
+      "area": 15,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "fitted",
+      "wave": 2,
+      "materials": [
+        "oak",
+        "plaster"
+      ],
+      "note": "Darkest room in the house. We are not going to pretend otherwise.",
+      "stageLabel": "Fitted"
+    },
+    {
+      "number": "04",
+      "name": "East gable",
+      "where": "First floor, east",
+      "aspect": "East and south, two windows",
+      "area": 24,
+      "beds": "One double, one single",
+      "sleeps": 3,
+      "stage": "furnished",
+      "wave": 1,
+      "materials": [
+        "oak",
+        "plaster",
+        "wool",
+        "brass"
+      ],
+      "note": "The room the photographs keep being taken in.",
+      "stageLabel": "Furnished"
+    },
+    {
+      "number": "05",
+      "name": "Marram",
+      "where": "First floor, south",
+      "aspect": "South, the dune and the channel",
+      "area": 21,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "plastered",
+      "wave": 2,
+      "materials": [
+        "plaster",
+        "slate"
+      ],
+      "note": "Named before the house was, and the house was named after it.",
+      "stageLabel": "Plastered"
+    },
+    {
+      "number": "06",
+      "name": "Bar",
+      "where": "First floor, south",
+      "aspect": "South, the channel",
+      "area": 20,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "plastered",
+      "wave": 2,
+      "materials": [
+        "plaster",
+        "oak"
+      ],
+      "note": "A sandbar, not a drinks bar. People ask.",
+      "stageLabel": "Plastered"
+    },
+    {
+      "number": "07",
+      "name": "Osprey",
+      "where": "First floor, west",
+      "aspect": "West, the estuary mouth",
+      "area": 22,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "roofed",
+      "wave": 2,
+      "materials": [
+        "plaster",
+        "oak",
+        "wool"
+      ],
+      "note": "Best light in the building between six and eight in the evening.",
+      "stageLabel": "Roofed"
+    },
+    {
+      "number": "08",
+      "name": "Wick",
+      "where": "First floor, north",
+      "aspect": "North, into the hill",
+      "area": 16,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "fitted",
+      "wave": 2,
+      "materials": [
+        "plaster",
+        "oak",
+        "brass"
+      ],
+      "note": "Small, and priced as such when there is a price.",
+      "stageLabel": "Fitted"
+    },
+    {
+      "number": "09",
+      "name": "Kiln",
+      "where": "Second floor, east",
+      "aspect": "East, roof height",
+      "area": 18,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "roofed",
+      "wave": 3,
+      "materials": [
+        "slate",
+        "oak"
+      ],
+      "note": "Under the slates. Warm in August, and we are working on that.",
+      "stageLabel": "Roofed"
+    },
+    {
+      "number": "10",
+      "name": "Netloft",
+      "where": "Second floor, west",
+      "aspect": "West, roof height",
+      "area": 18,
+      "beds": "Two singles",
+      "sleeps": 2,
+      "stage": "roofed",
+      "wave": 3,
+      "materials": [
+        "slate",
+        "oak"
+      ],
+      "note": "Low door. Six foot two is the practical ceiling.",
+      "stageLabel": "Roofed"
+    },
+    {
+      "number": "11",
+      "name": "Long room",
+      "where": "Second floor, across",
+      "aspect": "South and west",
+      "area": 31,
+      "beds": "One double, two singles",
+      "sleeps": 4,
+      "stage": "shell",
+      "wave": 3,
+      "materials": [
+        "slate"
+      ],
+      "note": "Still a shell, and the last thing we will finish.",
+      "stageLabel": "Shell"
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-12",
+      "title": "The slate landed",
+      "body": "Eleven tonnes from Ffestiniog, stacked in the yard for a fortnight while the roofers finish the west pitch. It is a colder grey than the sample, which we prefer and did not plan.",
+      "plate": "slate",
+      "dateLabel": "12 Aug 2026"
+    },
+    {
+      "date": "2026-07-30",
+      "title": "Seven rooms plastered",
+      "body": "Lime, three coats, and each one needs a week between them, which is why this took the whole summer and why the last four are next spring's problem.",
+      "plate": "room",
+      "dateLabel": "30 Jul 2026"
+    },
+    {
+      "date": "2026-06-18",
+      "title": "The kitchen is commissioned",
+      "body": "Signed with a workshop in Machynlleth. Oak, and one long run rather than an island, because the room is eleven feet wide and an island would be a wall.",
+      "plate": "table",
+      "dateLabel": "18 Jun 2026"
+    },
+    {
+      "date": "2026-05-02",
+      "title": "We had the survey back on the dune",
+      "body": "The marram is holding and the channel has moved nine metres east since the 2019 chart. Neither is a problem for the building. Both change the walk to the water.",
+      "plate": "marram",
+      "dateLabel": "2 May 2026"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can I book a room?",
+      "a": "No. Nothing is bookable and there is no deposit to pay. The list is a list; when the first wave opens in February, everyone on it gets forty-eight hours before the public."
+    },
+    {
+      "q": "What does joining cost?",
+      "a": "Nothing, and it never will. We are not selling a membership and there is no tier above the one you are on."
+    },
+    {
+      "q": "How often will you write?",
+      "a": "Roughly monthly, and only when something has actually happened. Four emails have gone out in the last twelve months."
+    },
+    {
+      "q": "Is the house accessible?",
+      "a": "Partly, and honestly: Ferryman is step-free from the yard door and has a level shower. The other ten rooms are up at least one flight, and the second floor has a low door. The lift we would need does not fit the stair core."
+    },
+    {
+      "q": "Where exactly is it?",
+      "a": "Above the Dyfi estuary in Gwynedd, four miles of tidal sand from the door. The nearest station is Penhelyg; we will publish the walk when there is something to walk to."
+    },
+    {
+      "q": "What happens to my address?",
+      "a": "It sits in one list, used to send the five emails described on this site, and nothing else. No advertising, no sharing, no analytics profile. Unsubscribing removes the row."
+    }
+  ],
+  "emails": [
+    {
+      "id": "01",
+      "step": "Confirm",
+      "subject": "Confirm your address",
+      "preheader": "One tap, and then nothing until there is news.",
+      "when": "Immediately",
+      "kicker": "Email 01",
+      "heading": "One tap and you're on the list",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Somebody put this address on the list for Marram. If that was you, confirm it below and we will stop bothering you until there is something true to say."
+        },
+        {
+          "kind": "text",
+          "text": "If it wasn't you, ignore this. Nothing happens, and the address is deleted in seven days."
+        }
+      ],
+      "cta": {
+        "label": "Confirm this address",
+        "href": "https://example.com/confirm"
+      },
+      "signoff": "No deposit, no booking, no card. It is a list."
+    },
+    {
+      "id": "02",
+      "step": "Standing",
+      "subject": "You're on the list",
+      "preheader": "Number 1,204, and what that actually gets you.",
+      "when": "Straight after confirming",
+      "kicker": "Email 02",
+      "heading": "You're on the list",
+      "blocks": [
+        {
+          "kind": "figure",
+          "figure": "1,204",
+          "caption": "your place in the queue"
+        },
+        {
+          "kind": "text",
+          "text": "The first season goes out as 40 invitations in two waves — February and April. Everyone here gets forty-eight hours before the public each time."
+        },
+        {
+          "kind": "text",
+          "text": "Being high on the list is not a reservation and does not hold a room. It decides the order the invitations go out in, and nothing else."
+        }
+      ],
+      "cta": {
+        "label": "What the waves mean",
+        "href": "https://example.com/list"
+      },
+      "signoff": "Roughly monthly, and only when something has happened."
+    },
+    {
+      "id": "03",
+      "step": "Referral",
+      "subject": "Two rooms, if you know the estuary",
+      "preheader": "The only thing we will ever ask you for.",
+      "when": "About a fortnight later",
+      "kicker": "Email 03",
+      "heading": "The only ask, and it is a small one",
+      "blocks": [
+        {
+          "kind": "plate",
+          "plate": "marram",
+          "alt": "Dry marram grass on the dune above the house, bending in the wind."
+        },
+        {
+          "kind": "text",
+          "text": "We are not advertising this and we are not going to. The list has grown by people telling one other person, which is the rate we can actually build for."
+        },
+        {
+          "kind": "text",
+          "text": "If somebody comes to mind — the one who knows this coast, or has been looking for somewhere to put a long weekend — send them the link. That is the whole scheme. There is no discount and no leaderboard."
+        }
+      ],
+      "cta": {
+        "label": "Copy the link",
+        "href": "https://example.com/"
+      },
+      "signoff": "You can leave the list at the bottom of any of these."
+    },
+    {
+      "id": "04",
+      "step": "Build update",
+      "subject": "7 of 11, and the slate is here",
+      "preheader": "Photographs, and what is still wrong with the kitchen.",
+      "when": "Whenever something happens",
+      "kicker": "Email 04",
+      "heading": "7 of 11 rooms plastered",
+      "blocks": [
+        {
+          "kind": "plate",
+          "plate": "room",
+          "alt": "An unfinished room at Marram: bare lime plaster, a deep window onto the estuary, a step-ladder against the far wall."
+        },
+        {
+          "kind": "text",
+          "text": "Eleven tonnes from Ffestiniog, stacked in the yard for a fortnight while the roofers finish the west pitch. It is a colder grey than the sample, which we prefer and did not plan. It landed on 12 Aug 2026."
+        },
+        {
+          "kind": "text",
+          "text": "Lime takes three coats and a week between each, which is why seven rooms took the whole summer and the last four are next spring's problem. The kitchen is commissioned and the run is eleven feet, which is shorter than we wanted."
+        },
+        {
+          "kind": "rule"
+        },
+        {
+          "kind": "text",
+          "text": "Nothing here is bookable yet. This is a progress note, not an offer."
+        }
+      ],
+      "cta": {
+        "label": "The full build log",
+        "href": "https://example.com/the-build"
+      },
+      "signoff": "Four of these have gone out in twelve months."
+    },
+    {
+      "id": "05",
+      "step": "The opening",
+      "subject": "Your window opens on Thursday",
+      "preheader": "Forty-eight hours before anybody else.",
+      "when": "When May 2027 finally arrives",
+      "kicker": "Email 05",
+      "heading": "Your window is open",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Wave one opens on Thursday at nine. You have forty-eight hours before the public list, and there are 40 invitations going out across the rooms that are finished."
+        },
+        {
+          "kind": "text",
+          "text": "The tag with a number on it is already on its hook. If Thursday does not suit, wave two is in April and you keep your place."
+        }
+      ],
+      "cta": {
+        "label": "Take a room",
+        "href": "https://example.com/rooms"
+      },
+      "signoff": "Thank you for waiting two and a half years."
+    }
+  ],
+  "emailChrome": {
+    "from": "Marram · Dyfi estuary, Gwynedd",
+    "address": "Marram, Dyfi estuary, Gwynedd. Nearest station Penhelyg.",
+    "unsubscribe": "Leave the list",
+    "unsubscribeHref": "https://example.com/unsubscribe"
+  },
+  "slate": {
+    "date": "2026-08-12",
+    "title": "The slate landed",
+    "body": "Eleven tonnes from Ffestiniog, stacked in the yard for a fortnight while the roofers finish the west pitch. It is a colder grey than the sample, which we prefer and did not plan.",
+    "plate": "slate",
+    "dateLabel": "12 Aug 2026",
+    "short": "12 Aug"
+  },
+  "featuredRoom": {
+    "number": "04",
+    "name": "East gable",
+    "where": "First floor, east",
+    "aspect": "East and south, two windows",
+    "area": 24,
+    "beds": "One double, one single",
+    "sleeps": 3,
+    "stage": "furnished",
+    "wave": 1,
+    "materials": [
+      "oak",
+      "plaster",
+      "wool",
+      "brass"
+    ],
+    "note": "The room the photographs keep being taken in."
+  },
+  "stepFree": [
+    {
+      "number": "02",
+      "name": "Ferryman",
+      "where": "Ground, east end",
+      "aspect": "East, over the saltings",
+      "area": 17,
+      "beds": "One double",
+      "sleeps": 2,
+      "stage": "furnished",
+      "wave": 1,
+      "materials": [
+        "oak",
+        "plaster",
+        "wool"
+      ],
+      "note": "Step-free from the yard door. The only ground-floor room that is."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "data": "src/data/marram.json",
+  "routes": [
+    {
+      "template": "pages/index.html",
+      "output": "index.html",
+      "path": "/",
+      "chrome": true,
+      "onPlate": true,
+      "mainClass": "",
+      "title": "Eleven rooms above the estuary",
+      "description": "A stone house on the Dyfi estuary in Gwynedd, opening May 2027. Nothing is finished and nothing is bookable — this is the list, and the build log that goes with it."
+    },
+    {
+      "template": "pages/rooms.html",
+      "output": "rooms/index.html",
+      "path": "/rooms",
+      "chrome": true,
+      "title": "Eleven rooms, and what stage each is at",
+      "description": "Every room named, with its gable, its aspect, its area and the stage it has actually reached — plus an access statement that says which one is step-free and which are not."
+    },
+    {
+      "template": "pages/the-build.html",
+      "output": "the-build/index.html",
+      "path": "/the-build",
+      "chrome": true,
+      "title": "The build log",
+      "description": "What has actually happened, dated: the slate landing, seven rooms plastered, the kitchen commissioned — and the five materials the house is made of."
+    },
+    {
+      "template": "pages/emails.html",
+      "output": "emails/index.html",
+      "path": "/emails",
+      "chrome": true,
+      "title": "The five emails",
+      "description": "Confirm, standing, the one ask, a build update, and the opening — five table-based HTML documents with plain-text parts, built from the same source as this page."
+    },
+    {
+      "template": "pages/list.html",
+      "output": "list/index.html",
+      "path": "/list",
+      "chrome": true,
+      "title": "What joining the list means",
+      "description": "Three release waves, six honest questions, and exactly what happens to your email address. No deposit at any stage, and nothing is bookable."
+    },
+    {
+      "template": "pages/components.html",
+      "output": "components/index.html",
+      "path": "/components",
+      "chrome": true,
+      "title": "The parts",
+      "description": "The living styleguide: every token, primitive and section this theme ships, rendered from the same fixture the site runs on."
+    }
+  ],
+  "assets": [
+    { "from": "src/fonts", "to": "assets/fonts" },
+    { "from": "src/assets", "to": "assets/img" }
+  ]
+}

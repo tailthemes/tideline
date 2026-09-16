@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" class="tt-tideline" data-mode-key="{{ site.storageKey }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{ page.title }} · {{ house.name }}</title>
+    {# Dark is this theme's default, so the pre-paint script ADDS `light` when
+       that is what was stored — the opposite of every other theme here, and
+       the reason the bare `<html>` above carries no mode class at all. Reading
+       the stored choice before the sheet paints is what stops a light-mode
+       reader seeing a near-black flash. #}
+    <script>try{if(localStorage.getItem("{{ site.storageKey }}")==="light"){document.documentElement.classList.add("light")}}catch(error){}</script>
+    <link rel="stylesheet" href="{{ root }}assets/theme.css">
+  </head>
+  <body class="min-h-screen min-w-80 bg-background font-sans text-foreground antialiased">
+    {# The skip link lives with the chrome it skips, so a page body is only ever
+       a list of sections. #}
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-themed focus:border focus:border-(--control-border) focus:bg-card focus:px-4 focus:py-3 focus:text-card-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-(length:--text-small) leading-(--leading-small) font-semibold"
+      >Skip to content</a
+    >
+    {% if page.chrome %}{% include "components/site-header.html" %}{% endif %}
+    <main id="main" tabindex="-1" class="{{ page.mainClass | default('pt-32 sm:pt-40') }} focus:outline-none">
+      {% block content %}{% endblock %}
+    </main>
+    {% if page.chrome %}{% include "components/site-footer.html" %}{% endif %}
+    <script defer src="{{ root }}assets/main.js"></script>
+  </body>
+</html>

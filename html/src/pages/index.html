@@ -1,0 +1,122 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+{# `/` — opens with the photograph, because on a pre-launch site the photograph
+   is the only thing there is to open with. Hero archetype A4: full-bleed image,
+   type overlaid, every string in the non-inverting `--plate-ink` family. #}
+<section aria-labelledby="hero-title" class="relative isolate">
+  <div class="relative h-[34rem] overflow-hidden sm:h-[42rem] lg:h-[46rem]">
+    {# Three planes, not one plate. `tl-layer-sky.jpg` is the estuary generated
+       with NO foreground; `tl-layer-dune.png` is the foreground alone, keyed off
+       flat chroma green. Compositing two real planes at different rates makes
+       depth; scaling one photograph makes a photograph that scales.
+
+       Each runs a CSS scroll-driven animation (`theme.css`) — no scroll
+       listener, and the page's own scroll speed untouched. The type does not
+       move: three travelling planes with travelling text on them is where
+       parallax stops being depth. #}
+    <img
+      src="{{ root }}assets/img/tl-layer-sky.jpg"
+      alt="The Dyfi estuary at dusk seen from the headland above {{ house.name }}: the tide far out across four miles of ribbed sand, water channels catching the last light, hills low on the horizon."
+      width="2400"
+      height="1030"
+      class="tideline-layer-back absolute inset-x-0 -top-[10%] h-[124%] w-full object-cover will-change-transform"
+    >
+    <div
+      aria-hidden="true"
+      class="tideline-layer-mid absolute inset-x-0 -top-[6%] h-[114%] bg-[linear-gradient(100deg,var(--scrim)_0%,var(--scrim)_34%,transparent_86%)] opacity-[0.82] will-change-transform"
+    ></div>
+    <img
+      src="{{ root }}assets/img/tl-layer-dune.png"
+      alt=""
+      aria-hidden="true"
+      width="2400"
+      height="1030"
+      class="tideline-layer-fore pointer-events-none absolute inset-x-0 -bottom-[8%] h-[52%] w-full object-cover object-bottom will-change-transform"
+    >
+    <div
+      aria-hidden="true"
+      class="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(0deg,var(--background)_4%,transparent_100%)]"
+    ></div>
+
+    <div class="absolute inset-0 flex items-end pb-14 sm:pb-20">
+      <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+        <p class="flex max-w-md items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--plate-ink-brass)">
+          <span>Opening {{ house.opensShort }} · the list is open</span>
+          <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+        </p>
+
+        <h1
+          id="hero-title"
+          class="mt-6 max-w-[15ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d4) leading-(--leading-d4) tracking-(--tracking-d4) text-(--plate-ink)"
+        >
+          Eleven rooms above
+          <em class="italic text-(--plate-ink-brass)">the estuary</em>
+        </h1>
+
+        <p class="mt-7 max-w-[44ch] text-pretty text-(length:--text-lead) leading-(--leading-lead) text-(--plate-ink-muted)">
+          A stone house on the Dyfi, with {{ house.walkToWater }} of tidal sand at the door.
+          Nothing is finished and nothing is bookable. This is the list.
+        </p>
+
+        {% set tone = "plate" %}
+        {% set id = "hero" %}
+        {% set class = "mt-9 max-w-[30rem]" %}
+        {% include "components/join-form.html" %}
+
+        <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-(--plate-ink-muted)">
+          <span class="text-(--plate-ink-brass)">{{ derived.listCount }}</span> ahead of you ·
+          {{ derived.plasteredOf }} rooms plastered ·
+          <span class="text-(--plate-ink-brass)">{{ house.firstSeasonInvites }}</span>
+          invitations in the first season
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# The honest countdown. Every waitlist template puts a clock here; a clock
+   counts to a date the builder invented, and on a build that slips by a season
+   it is a promise the site cannot keep. #}
+<section data-tl-reveal class="border-y border-hairline">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <h2 class="sr-only">Where the build has got to</h2>
+    <dl class="grid grid-cols-2 divide-hairline sm:grid-cols-4 sm:divide-x">
+      {% set cells = [
+        { "label": "Rooms plastered", "value": derived.plastered, "sub": "/ " + (derived.total | string) },
+        { "label": "Slate landed", "value": slate.short, "sub": "" },
+        { "label": "Kitchen", "value": "Commissioned", "sub": "" },
+        { "label": "First season", "value": house.firstSeasonInvites, "sub": "invitations" }
+      ] %}
+      {% for cell in cells %}
+      <div class="{% if loop.index < 3 %}border-b border-hairline sm:border-b-0{% endif %} py-7 {% if loop.first %}pr-6{% elif loop.last %}sm:pl-6{% else %}sm:px-6{% endif %}">
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+          {{ cell.label }}
+        </dt>
+        <dd class="mt-2.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+          <span class="tabular-nums">{{ cell.value }}</span>
+          {% if cell.sub %}<span class="ml-1.5 text-(length:--text-body) text-muted-foreground">{{ cell.sub }}</span>{% endif %}
+        </dd>
+      </div>
+      {% endfor %}
+    </dl>
+    <p class="pb-7 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+      Sleeps {{ derived.sleeps }} across {{ derived.total }} rooms. No clock on this page —
+      the date moves, and a countdown to a date that moves is a promise we would rather not
+      make.
+    </p>
+  </div>
+</section>
+
+{% include "components/land-gallery.html" %}
+{% include "components/materials-board.html" %}
+{% include "components/material-rail.html" %}
+{% include "components/room-index.html" %}
+{% include "components/room-states.html" %}
+
+{# The build log, two entries, then the sequence. #}
+{% set updateLimit = 2 %}
+{% include "components/updates-feed.html" %}
+{% set emailLimit = 3 %}
+{% include "components/email-sequence.html" %}
+{% endblock %}

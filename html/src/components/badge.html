@@ -1,0 +1,28 @@
+{# The badge — the HTML edition's twin of `src/components/ui/badge.tsx`.
+   Two tones, never a palette: `accent_mode` is monochrome-plus-spot and there
+   is exactly one chromatic ink. Never colour alone — the word is always there
+   and the lifecycle badges carry a glyph as well. #}
+{% import "components/icons.html" as ic %}
+
+{% macro badge(label, tone="quiet", glyph="", extra="") %}
+<span class="inline-flex items-center gap-1.5 rounded-themed border px-2.5 py-1 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase {% if tone == 'marked' %}border-(--primary-border) bg-accent text-(--primary-ink){% elif tone == 'plate' %}border-(--plate-ink-muted)/50 text-(--plate-ink-muted){% else %}border-border text-muted-foreground{% endif %} {{ extra }}">
+  {% if glyph %}{{ ic.icon(glyph, "size-3 shrink-0") }}{% endif %}{{ label }}
+</span>
+{% endmacro %}
+
+{# The room chips: the same shape, as a link. #}
+{% macro badgeLink(label, href, tone="quiet") %}
+<a
+  href="{{ href }}"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring {% if tone == 'marked' %}border-(--primary-border) bg-accent text-(--primary-ink){% else %}border-border text-muted-foreground hover:text-foreground{% endif %}"
+  >{{ label }}</a
+>
+{% endmacro %}
+
+{# The build ladder. Read across eleven rows it is a sequence — an empty
+   frame, a roof, plaster, tools, done — which is what makes eleven stage
+   words scannable instead of a column of prose. #}
+{% set stageGlyph = {
+  "Shell": "frame", "Roofed": "house", "Plastered": "paint-roller",
+  "Fitted": "hammer", "Furnished": "check"
+} %}

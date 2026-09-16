@@ -1,0 +1,94 @@
+{# The five materials at working distance, plus the empty hooks.
+
+   The board says what the house is made of; this says what it will feel like,
+   which is the claim a visitor is actually shopping for.
+
+   The rail travels sideways as the band crosses the viewport, driven by
+   `animation-timeline: view()` in `src/theme.css`. No autoplay, no timer, no
+   arrows, no dots — it moves exactly as far as the reader scrolls and stops
+   when they stop, which is why it owes no pause control.
+
+   `overflow-x-auto` is on the track in every case, so a keyboard and a
+   trackpad reach the far end whether or not the animation runs. The motion sits
+   on top of a control that works without it. #}
+
+{% set plates = {
+  "slate": { "img": "tl-detail-slate.jpg", "alt": "The split face of a single piece of riven Welsh slate, blue-grey, catching a cold light across the cleavage plane." },
+  "oak": { "img": "tl-detail-oak.jpg", "alt": "Oiled oak floorboards close up, the grain running diagonally, one hand-cut nail set into the board." },
+  "wool": { "img": "tl-detail-wool.jpg", "alt": "Undyed oatmeal wool blanket folded once, the coarse loose weave in soft daylight." },
+  "plaster": { "img": "tl-detail-plaster.jpg", "alt": "A chalky lime-plastered wall surface, trowel marks and small pits raking across the frame under low side light." },
+  "brass": { "img": "tl-detail-brass.jpg", "alt": "An unlacquered brass door lever on a bare plastered wall, fingerprints and patina visible." }
+} %}
+
+<section aria-labelledby="materials" class="overflow-hidden border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+      <span>At working distance</span>
+      <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+    </p>
+    <div class="mt-5 flex flex-wrap items-end justify-between gap-6">
+      <h2
+        id="materials"
+        class="max-w-[20ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        What it will feel like
+      </h2>
+      <p class="max-w-[36ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        The board is the specification. This is the specification at the scale you would
+        put a hand on.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-14 overflow-x-auto">
+    <ul class="tideline-rail flex w-max gap-5 px-6 will-change-transform sm:px-10">
+      {% for material in materials %}
+      <li class="w-[19rem] shrink-0 sm:w-[24rem]">
+        <figure>
+          <img
+            src="{{ root }}assets/img/{{ plates[material.key].img }}"
+            alt="{{ plates[material.key].alt }}"
+            width="1000"
+            height="1000"
+            class="aspect-square w-full rounded-themed object-cover"
+          >
+          <figcaption class="mt-4 flex items-baseline justify-between gap-4">
+            <span class="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                class="size-3 rounded-(--radius-inner) border border-border"
+                style="background: var({{ material.token }})"
+              ></span>
+              <span class="text-(length:--text-small) leading-(--leading-small) text-foreground">{{ material.name }}</span>
+            </span>
+            <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">{{ material.code }}</span>
+          </figcaption>
+          <p class="mt-2 text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+            {{ material.note }}
+          </p>
+        </figure>
+      </li>
+      {% endfor %}
+
+      {# The hooks close the rail: eleven of them, all empty, which is the whole
+         site in one photograph. #}
+      <li class="w-[19rem] shrink-0 sm:w-[24rem]">
+        <figure>
+          <img
+            src="{{ root }}assets/img/tl-detail-key.jpg"
+            alt="A row of small brass hooks screwed into a bare oak board on a plastered wall. Every hook is empty."
+            width="1000"
+            height="1000"
+            class="aspect-square w-full rounded-themed object-cover"
+          >
+          <figcaption class="mt-4 font-mono text-(length:--text-small) leading-(--leading-small) text-(--primary-ink)">
+            The hooks, still empty
+          </figcaption>
+          <p class="mt-2 text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+            Screwed to the board in June. The tags are cast and lying in a drawer.
+          </p>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>

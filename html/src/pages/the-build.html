@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+{# `/the-build` — opens with the dated log, in full. The board follows rather
+   than leads, and carries a different heading from the one it carries on `/`:
+   there it introduces the palette to somebody who has not seen it, here it
+   answers "what is the house made of" for somebody who has just read four
+   entries about slate. Same component, different question — which is the test
+   for whether a section is being reused or just repeated. #}
+{% set updatesLevel = 1 %}
+{% set headingId = "build-title" %}
+{% include "components/updates-feed.html" %}
+
+{% set headingId = "build-board" %}
+{% set heading = "Five materials, and where each one came from" %}
+{% include "components/materials-board.html" %}
+
+{% include "components/join-seam.html" %}
+{% endblock %}

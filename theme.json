@@ -1,0 +1,505 @@
+{
+  "slug": "tideline",
+  "name": "Tideline \u2014 Pre-launch & Waitlist",
+  "version": "1.0.0",
+  "category": "local business",
+  "priceCents": 0,
+  "summary": "For a launch with nothing to demo yet: a free coming soon website template that is a whole pre-launch site. 6 routes, a build log and five HTML emails.",
+  "description": "Tideline is a coming soon website template for Tailwind and React, built for the studio putting a launch online before there is anything to sell. Its premise is that a pre-launch site has nothing to demo \u2014 no product, no screenshots, no booking \u2014 so the only honest argument it can make is what the thing is made of and how far along it is. The signature is the materials board: five samples photographed flat, each one carrying the design token it *is*, so the swatch in the styleguide and the plate on the page are the same decision rather than two guesses. The countdown is a build state, not a clock: seven of eleven rooms plastered, slate landed 12 August, and every one of those figures resolves through a single fixture file, so no page can contradict another. The fiction is Marram, an eleven-room house above the Dyfi estuary in Gwynedd, opening May 2027, with nothing bookable and no deposit to take. Where the twelve free waitlist starters ship a form, this ships the part that actually does the work: five table-based HTML emails \u2014 confirm, standing, referral, a build update with photography, and the opening \u2014 rendered from the same tokens and previewed in the site itself at /emails. Near-black ground with one brass accent, Spectral over Manrope, a full light mode that inverts the page around photography that stays dark in both.",
+  "tags": [
+    "coming soon website template",
+    "waitlist landing page template",
+    "pre launch website template",
+    "hotel coming soon template",
+    "opening soon website template nextjs",
+    "tailwind email template"
+  ],
+  "accent_mode": "monochrome-plus-spot",
+  "palette": {
+    "bg": "#0d0f0e",
+    "surface": "#141816",
+    "accent": "#c9a227",
+    "text": "#ece7dc",
+    "line": "#2a302c"
+  },
+  "darkMode": true,
+  "compatibility": {
+    "next": ">=15.0.0",
+    "react": ">=19.0.0",
+    "tailwind": ">=4.0.0"
+  },
+  "dependencies": [
+    "lucide-react"
+  ],
+  "editions": {
+    "react": {
+      "source": "src",
+      "runtime": "react"
+    },
+    "html": {
+      "source": "html/src",
+      "output": "html/dist",
+      "engine": "nunjucks",
+      "runtime": "vanilla",
+      "buildRequired": false
+    }
+  },
+  "ui_library": {
+    "version": "1.5.1",
+    "files": [
+      "html/src/js/_tt/accordion-disclosure.js",
+      "html/src/js/_tt/field-ids.js",
+      "html/src/js/_tt/field.js",
+      "src/components/ui/_tt/accordion-disclosure.axes.ts",
+      "src/components/ui/_tt/accordion-disclosure.fixtures.ts",
+      "src/components/ui/_tt/accordion-disclosure.tsx",
+      "src/components/ui/_tt/capture.ts",
+      "src/components/ui/_tt/field-ids.ts",
+      "src/components/ui/_tt/field.axes.ts",
+      "src/components/ui/_tt/field.capture.ts",
+      "src/components/ui/_tt/field.fixtures.ts",
+      "src/components/ui/_tt/field.tsx",
+      "src/components/ui/_tt/ids.ts",
+      "src/components/ui/_tt/recipe.ts"
+    ]
+  },
+  "license": "free",
+  "design": {
+    "typefaces": {
+      "display": "Spectral",
+      "text": "Manrope",
+      "mono": "Martian Mono"
+    },
+    "typeRatio": 1.5,
+    "density": "comfortable",
+    "heroArchetype": "A4",
+    "motionPersonality": "tidal",
+    "surface_kind": "marketing",
+    "built_against": "2026-08-28",
+    "levers": {
+      "theme": "near-dark",
+      "density": "comfortable",
+      "accent_mode": "monochrome-plus-spot",
+      "motion": "tactile",
+      "borders": "hairline",
+      "radius": "small",
+      "texture": "none",
+      "shadow": "raised-only"
+    },
+    "icons": {
+      "set": "lucide",
+      "stroke": 2,
+      "ladder": [
+        "size-3",
+        "size-3.5",
+        "size-4"
+      ],
+      "contexts": {
+        "nav": "glyph",
+        "panel_header": "mark",
+        "fact_row": "none",
+        "feature_grid": "none"
+      }
+    },
+    "disclosure": {
+      "helper_line": "one-clause",
+      "sentence": "hint",
+      "paragraph": "details",
+      "parallel_views": "tabs",
+      "secondary_object": "drawer"
+    },
+    "cta": {
+      "header": "quiet",
+      "hero": "filled",
+      "repeats": [
+        "fold",
+        "end"
+      ],
+      "mobile": "inline"
+    },
+    "colour_budget": {
+      "brand_max_pct": null,
+      "concentration_pct": 70,
+      "regions": []
+    }
+  },
+  "pages": [
+    {
+      "path": "/",
+      "title": "Marram: eleven rooms above the Dyfi, opening May 2027",
+      "sections": [
+        "site-header",
+        "hero",
+        "build-strip",
+        "land-gallery",
+        "materials-board",
+        "material-rail",
+        "room-index",
+        "room-states",
+        "updates-feed",
+        "email-sequence",
+        "site-footer"
+      ]
+    },
+    {
+      "path": "/rooms",
+      "title": "Eleven rooms, and what stage each one is at",
+      "sections": [
+        "site-header",
+        "room-index",
+        "room-table",
+        "access-note",
+        "join-seam",
+        "site-footer"
+      ]
+    },
+    {
+      "path": "/the-build",
+      "title": "The build log: what has actually happened",
+      "sections": [
+        "site-header",
+        "updates-feed",
+        "materials-board",
+        "join-seam",
+        "site-footer"
+      ]
+    },
+    {
+      "path": "/emails",
+      "title": "The five emails, and when each one arrives",
+      "sections": [
+        "site-header",
+        "email-sequence",
+        "email-notes",
+        "join-seam",
+        "site-footer"
+      ]
+    },
+    {
+      "path": "/list",
+      "title": "What joining the list means, and what it does not",
+      "sections": [
+        "site-header",
+        "waves-table",
+        "faq",
+        "privacy-note",
+        "join-seam",
+        "site-footer"
+      ]
+    },
+    {
+      "path": "/components",
+      "title": "The parts",
+      "sections": [
+        "site-header",
+        "tokens",
+        "ui",
+        "site-footer"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ui/button",
+      "file": "src/components/ui/primitives.tsx",
+      "renders": "Filled and quiet actions with the full state ramp"
+    },
+    {
+      "name": "ui/field",
+      "file": "src/components/ui/field.tsx",
+      "renders": "Library field shell with the theme's recipe \u2014 one message line, error/success/description precedence"
+    },
+    {
+      "name": "ui/accordion-disclosure",
+      "file": "src/components/ui/accordion-disclosure.tsx",
+      "renders": "Library disclosure with the theme's + / \u2212 marker swap"
+    },
+    {
+      "name": "ui/badge",
+      "file": "src/components/ui/badge.tsx",
+      "renders": "One hairline shape in two tones \u2014 quiet and marked \u2014 carrying the build-stage ladder, the release wave, and the room chips as links. Never colour alone: every badge keeps its word, and the lifecycle ones keep a glyph too"
+    },
+    {
+      "name": "ui/eyebrow",
+      "file": "src/components/ui/primitives.tsx",
+      "renders": "Letterspaced mono kicker with a hairline, in the page and on-plate registers"
+    },
+    {
+      "name": "ui/stat",
+      "file": "src/components/ui/primitives.tsx",
+      "renders": "A mono label over a serif figure"
+    },
+    {
+      "name": "join-form",
+      "file": "src/components/join-form.tsx",
+      "renders": "The one form in the theme \u2014 rest, invalid, submitting and a durable success state"
+    },
+    {
+      "name": "hero",
+      "file": "src/components/hero.tsx",
+      "renders": "Full-bleed estuary plate with the headline, the join form and the standing line over it (archetype A4)"
+    },
+    {
+      "name": "build-strip",
+      "file": "src/components/build-strip.tsx",
+      "renders": "Four hairline-divided figures: rooms plastered, slate landed, kitchen, first season \u2014 the honest countdown, no clock"
+    },
+    {
+      "name": "land-gallery",
+      "file": "src/components/land-gallery.tsx",
+      "renders": "The land as one pinned frame: four plates cross-fading with their captions, and dots at the right edge that scroll a specific slide into view"
+    },
+    {
+      "name": "materials-board",
+      "file": "src/components/materials-board.tsx",
+      "renders": "The signature: five photographed samples beside the five tokens they are, with source and sample code"
+    },
+    {
+      "name": "material-rail",
+      "file": "src/components/material-rail.tsx",
+      "renders": "Five materials photographed at working distance, followed by the empty hooks, on a rail that travels sideways as the band crosses the viewport"
+    },
+    {
+      "name": "room-index",
+      "file": "src/components/room-index.tsx",
+      "renders": "The chroma-keyed brass tag with its room number set in HTML, and eleven room chips"
+    },
+    {
+      "name": "room-table",
+      "file": "src/components/room-table.tsx",
+      "renders": "One row per room \u2014 name, gable, aspect, area, stage, wave, materials \u2014 eleven rows"
+    },
+    {
+      "name": "room-states",
+      "file": "src/components/room-states.tsx",
+      "renders": "One room at each of four build stages, with the count past each stage read from the fixture"
+    },
+    {
+      "name": "updates-feed",
+      "file": "src/components/updates-feed.tsx",
+      "renders": "The build log: dated entries with alternating plates, the proof-of-progress a testimonial would stand in for"
+    },
+    {
+      "name": "email-sequence",
+      "file": "src/components/email-sequence.tsx",
+      "renders": "The five emails as cards, rendered from the same source as the sendable documents"
+    },
+    {
+      "name": "email-notes",
+      "file": "src/components/email-notes.tsx",
+      "renders": "What the buyer gets in src/emails, written to the buyer rather than in the house voice"
+    },
+    {
+      "name": "waves-table",
+      "file": "src/components/waves-table.tsx",
+      "renders": "The pricing table's honest form \u2014 three release waves, what each buys, no prices"
+    },
+    {
+      "name": "faq",
+      "file": "src/components/faq.tsx",
+      "renders": "Six disclosures, opening with 'can I book a room?' answered 'no'"
+    },
+    {
+      "name": "access-note",
+      "file": "src/components/access-note.tsx",
+      "renders": "The access statement: the one step-free room named, the stairs and the low door stated"
+    },
+    {
+      "name": "privacy-note",
+      "file": "src/components/privacy-note.tsx",
+      "renders": "Five lines on exactly what happens to an email address"
+    },
+    {
+      "name": "join-seam",
+      "file": "src/components/join-seam.tsx",
+      "renders": "The join form again on a sunken band, at the foot of every interior route"
+    },
+    {
+      "name": "site-header",
+      "file": "src/components/site-header.tsx",
+      "renders": "Overlay header with two ink registers, primary nav, mode picker and a native mobile disclosure"
+    },
+    {
+      "name": "site-footer",
+      "file": "src/components/site-footer.tsx",
+      "renders": "Where the house is, what stage it is at, and the standing 'nothing is bookable' line"
+    }
+  ],
+  "tokens": {
+    "--background": "#e8e2d6",
+    "--foreground": "#191b18",
+    "--card": "#f3efe6",
+    "--card-foreground": "#191b18",
+    "--surface-raised": "#faf7f0",
+    "--surface-sunken": "#ded7c8",
+    "--primary": "#c9a227",
+    "--primary-foreground": "#17140a",
+    "--primary-hover": "#d9b243",
+    "--primary-active": "#e6c364",
+    "--primary-ink": "#6f5709",
+    "--primary-soft": "#ecdfbb",
+    "--primary-border": "#b79b4d",
+    "--accent": "#ecdfbb",
+    "--accent-foreground": "#191b18",
+    "--secondary": "#ded7c8",
+    "--secondary-foreground": "#191b18",
+    "--secondary-hover": "#d5cdbc",
+    "--secondary-active": "#cbc2ae",
+    "--muted": "#e0d9cb",
+    "--muted-foreground": "#585d56",
+    "--border": "#c0b59d",
+    "--hairline": "#cdc3ac",
+    "--ring": "#6f5709",
+    "--field": "#faf7f0",
+    "--field-border": "#b9ad93",
+    "--control-border": "#6f6754",
+    "--selection": "#ecdfbb",
+    "--selection-border": "#b79b4d",
+    "--selection-foreground": "#191b18",
+    "--scrim": "#080a09",
+    "--shadow-color": "#4a4436",
+    "--shadow-raised": "0 1px 2px color-mix(in oklab, var(--shadow-color) 18%, transparent)",
+    "--shadow-overlay": "0 18px 40px color-mix(in oklab, var(--shadow-color) 22%, transparent)",
+    "--shadow-cutout": "0 26px 30px color-mix(in oklab, var(--shadow-color) 26%, transparent)",
+    "--positive": "#2f6b47",
+    "--positive-foreground": "#f3efe6",
+    "--warning": "#7a5510",
+    "--warning-foreground": "#f3efe6",
+    "--critical": "#8d3128",
+    "--critical-foreground": "#f3efe6",
+    "--info": "#2b5666",
+    "--info-foreground": "#f3efe6",
+    "--material-slate": "#4a5157",
+    "--material-oak": "#b98b4e",
+    "--material-wool": "#cbc1ac",
+    "--material-plaster": "#e8e2d6",
+    "--material-brass": "#c9a227",
+    "--plate-ink": "#f4efe4",
+    "--plate-ink-muted": "#cfcabe",
+    "--plate-ink-brass": "#e0bb4a",
+    "--control-height": "3.5rem",
+    "--radius": "2px",
+    "--font-display": "var(--font-tideline-display), ui-serif, Georgia, \"Times New Roman\", serif",
+    "--font-text": "var(--font-tideline-text), ui-sans-serif, system-ui, Arial, sans-serif",
+    "--font-sans": "var(--font-text)",
+    "--font-mono": "var(--font-tideline-mono), ui-monospace, SFMono-Regular, Menlo, \"Courier New\", monospace",
+    "--text-caption": "0.75rem",
+    "--text-small": "0.875rem",
+    "--text-body": "1rem",
+    "--text-lead": "1.125rem",
+    "--leading-caption": "1.4",
+    "--leading-small": "1.45",
+    "--leading-body": "1.55",
+    "--leading-lead": "1.6",
+    "--text-d1": "1.5rem",
+    "--text-d2": "2.25rem",
+    "--text-d3": "clamp(2.5rem, 1.6rem + 3.6vw, 3.375rem)",
+    "--text-d4": "clamp(3rem, 1.4rem + 6.4vw, 5.0625rem)",
+    "--leading-d1": "1.25",
+    "--leading-d2": "1.15",
+    "--leading-d3": "1.06",
+    "--leading-d4": "0.98",
+    "--tracking-d1": "0em",
+    "--tracking-d2": "-0.01em",
+    "--tracking-d3": "-0.018em",
+    "--tracking-d4": "-0.026em",
+    "--tracking-eyebrow": "0.22em",
+    "--tracking-label": "0.16em",
+    "--tracking-wordmark": "0.32em",
+    "--weight-display": "400",
+    "--radius-inner": "1px",
+    "--ease-house": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "--duration-micro": "140ms",
+    "--duration-state": "250ms",
+    "--duration-entrance": "380ms"
+  },
+  "tokensDark": {
+    "--background": "#0d0f0e",
+    "--foreground": "#ece7dc",
+    "--card": "#141816",
+    "--card-foreground": "#ece7dc",
+    "--surface-raised": "#1b201d",
+    "--surface-sunken": "#0a0c0b",
+    "--primary": "#c9a227",
+    "--primary-foreground": "#17140a",
+    "--primary-hover": "#d9b243",
+    "--primary-active": "#e6c364",
+    "--primary-ink": "#e0bb4a",
+    "--primary-soft": "#2b2410",
+    "--primary-border": "#6d5a1c",
+    "--accent": "#3a3218",
+    "--accent-foreground": "#ece7dc",
+    "--secondary": "#1f2421",
+    "--secondary-foreground": "#ece7dc",
+    "--secondary-hover": "#262c28",
+    "--secondary-active": "#2e3530",
+    "--muted": "#171b19",
+    "--muted-foreground": "#9ba39c",
+    "--border": "#2a302c",
+    "--hairline": "#363d38",
+    "--ring": "#c9a227",
+    "--field": "#10130f",
+    "--field-border": "#333a35",
+    "--control-border": "#6b736c",
+    "--selection": "#23291f",
+    "--selection-border": "#5d6a4a",
+    "--selection-foreground": "#ece7dc",
+    "--scrim": "#080a09",
+    "--shadow-color": "#000000",
+    "--shadow-raised": "0 1px 2px color-mix(in oklab, var(--shadow-color) 55%, transparent)",
+    "--shadow-overlay": "0 18px 40px color-mix(in oklab, var(--shadow-color) 62%, transparent)",
+    "--shadow-cutout": "0 26px 30px color-mix(in oklab, var(--shadow-color) 62%, transparent)",
+    "--positive": "#7fc99a",
+    "--positive-foreground": "#0a1a10",
+    "--warning": "#dcae5c",
+    "--warning-foreground": "#1d1505",
+    "--critical": "#dd8f86",
+    "--critical-foreground": "#240d0a",
+    "--info": "#93b6c4",
+    "--info-foreground": "#08161c",
+    "--material-slate": "#4a5157",
+    "--material-oak": "#b98b4e",
+    "--material-wool": "#cbc1ac",
+    "--material-plaster": "#e8e2d6",
+    "--material-brass": "#c9a227",
+    "--plate-ink": "#f4efe4",
+    "--plate-ink-muted": "#cfcabe",
+    "--plate-ink-brass": "#e0bb4a",
+    "--control-height": "3.5rem",
+    "--radius": "2px",
+    "--font-display": "var(--font-tideline-display), ui-serif, Georgia, \"Times New Roman\", serif",
+    "--font-text": "var(--font-tideline-text), ui-sans-serif, system-ui, Arial, sans-serif",
+    "--font-sans": "var(--font-text)",
+    "--font-mono": "var(--font-tideline-mono), ui-monospace, SFMono-Regular, Menlo, \"Courier New\", monospace",
+    "--text-caption": "0.75rem",
+    "--text-small": "0.875rem",
+    "--text-body": "1rem",
+    "--text-lead": "1.125rem",
+    "--leading-caption": "1.4",
+    "--leading-small": "1.45",
+    "--leading-body": "1.55",
+    "--leading-lead": "1.6",
+    "--text-d1": "1.5rem",
+    "--text-d2": "2.25rem",
+    "--text-d3": "clamp(2.5rem, 1.6rem + 3.6vw, 3.375rem)",
+    "--text-d4": "clamp(3rem, 1.4rem + 6.4vw, 5.0625rem)",
+    "--leading-d1": "1.25",
+    "--leading-d2": "1.15",
+    "--leading-d3": "1.06",
+    "--leading-d4": "0.98",
+    "--tracking-d1": "0.004em",
+    "--tracking-d2": "-0.006em",
+    "--tracking-d3": "-0.014em",
+    "--tracking-d4": "-0.022em",
+    "--tracking-eyebrow": "0.22em",
+    "--tracking-label": "0.16em",
+    "--tracking-wordmark": "0.32em",
+    "--weight-display": "400",
+    "--radius-inner": "1px",
+    "--ease-house": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "--duration-micro": "140ms",
+    "--duration-state": "250ms",
+    "--duration-entrance": "380ms"
+  },
+  "signature": "The materials board: five samples photographed flat, each row carrying the design token it is, with the sample code the joiner uses. The swatch and the plate are one decision rather than two that drifted."
+}

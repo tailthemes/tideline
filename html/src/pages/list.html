@@ -1,0 +1,135 @@
+{% extends "layouts/base.html" %}
+{% import "components/badge.html" as b %}
+
+{% block content %}
+{# `/list` — opens with the waves table, which is this theme's pricing page with
+   the prices removed because there are none. Then the six questions we actually
+   get, then exactly what happens to the address. A visitor who reads all three
+   in order has had every objection answered before the form appears, which is
+   why the form is at the bottom. #}
+<section aria-labelledby="list-title" class="pb-20 sm:pb-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The list</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h1
+        id="list-title"
+        class="mt-5 max-w-[18ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground"
+      >
+        What joining means, and what it does not
+      </h1>
+      <p class="mt-6 max-w-[52ch] text-pretty text-(length:--text-lead) leading-(--leading-lead) text-muted-foreground">
+        It is a list. It costs nothing, it holds no room, and it takes no card. What it does
+        is decide the order the invitations go out in.
+      </p>
+    </div>
+
+    <div data-tl-reveal class="mt-14">
+      <ol class="border-t border-hairline">
+        {% for wave in house.waves %}
+        <li class="grid gap-x-8 gap-y-3 border-b border-hairline py-7 sm:grid-cols-[8rem_1fr_auto]">
+          <p>{{ b.badge("Wave " + (wave.wave | string), "marked" if wave.wave == 1 else "quiet") }}</p>
+          <div>
+            <p class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+              {{ wave.when }}
+            </p>
+            <p class="mt-2 max-w-[48ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+              {{ wave.what }}
+            </p>
+          </div>
+          <p class="font-mono text-(length:--text-small) leading-(--leading-small) tabular-nums text-muted-foreground sm:text-right">
+            {{ wave.rooms }} of {{ derived.total }} rooms
+          </p>
+        </li>
+        {% endfor %}
+      </ol>
+      <p class="mt-6 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+        {{ house.firstSeasonInvites }} invitations in the first season · no deposit at any
+        stage
+      </p>
+    </div>
+  </div>
+</section>
+
+{# Six questions, and the first one is "can I book a room?" answered "no".
+   Leading with the refusal is the decision worth defending: the conventional
+   order buries the disappointing answer at position five, so the one thing a
+   visitor most wants to know is the thing they have to hunt for.
+
+   Native `<details>`, so Enter and Space work with no script and expanded state
+   is implicit. Escape does not close it; AGENTS.md records that reduction. #}
+<section aria-labelledby="faq" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto grid w-full max-w-[84rem] gap-12 px-6 sm:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Questions</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="faq"
+        class="mt-5 max-w-[14ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        The six we actually get
+      </h2>
+    </div>
+
+    <div data-tl-reveal class="border-t border-hairline">
+      {% for item in faq %}
+      <details class="border-b border-hairline" {% if loop.first %}open{% endif %}>
+        <summary class="flex w-full cursor-pointer list-none items-center justify-between gap-6 py-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) hover:text-(--primary-ink)">
+          <h3 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+            {{ item.q }}
+          </h3>
+          <span aria-hidden="true" class="shrink-0 text-(--primary-ink)">
+            <span data-marker="closed">+</span>
+            <span data-marker="open">−</span>
+          </span>
+        </summary>
+        <p class="pb-6 pr-10 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+          {{ item.a }}
+        </p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# The privacy note on the page rather than behind a link: a waitlist's whole
+   transaction is an email address, so the sentence explaining what happens to
+   it belongs beside the field. #}
+<section aria-labelledby="privacy" class="border-t border-hairline py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-[38rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Your address</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="privacy"
+        class="mt-5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground"
+      >
+        What happens to it, in full
+      </h2>
+      {% set lines = [
+        "It sits in one list and receives the " + (emails.length | string) + " emails described on this site. Nothing else is sent to it.",
+        "No advertising, ever, from us or from anybody we might sell to.",
+        "It is not shared, not sold, and not loaded into an analytics profile. There is no pixel in these emails.",
+        "Unsubscribing deletes the row. Not “marks it inactive” — deletes it.",
+        "If the house never opens, the list is deleted and we send one email saying so."
+      ] %}
+      <ul class="mt-6 flex flex-col gap-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground">
+        {% for line in lines %}
+        <li class="flex gap-3.5">
+          <span aria-hidden="true" class="mt-2.5 h-px w-4 shrink-0 bg-(--primary-ink)"></span>
+          <span class="text-pretty">{{ line }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% include "components/join-seam.html" %}
+{% endblock %}

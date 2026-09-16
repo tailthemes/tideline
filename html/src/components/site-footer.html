@@ -1,0 +1,64 @@
+{% import "components/icons.html" as ic %}
+<footer class="border-t border-hairline py-14">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div>
+        <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-wordmark) uppercase text-foreground">
+          <span data-brand-name>{{ house.name }}</span>
+        </span>
+        {# A place and a station: the two facts in this footer a glyph names
+           faster than the words do. #}
+        <ul class="mt-4 flex max-w-[32ch] flex-col gap-2 text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+          <li class="flex items-start gap-2.5">
+            {{ ic.icon("map-pin", "mt-0.5 size-3.5 shrink-0") }}
+            An eleven-room house above the Dyfi estuary, opening {{ house.opens }}.
+          </li>
+          <li class="flex items-center gap-2.5">
+            {{ ic.icon("train-front") }}Nearest station {{ house.station }}.
+          </li>
+        </ul>
+        <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+          {{ derived.plasteredOf }} rooms plastered · {{ house.tideRange }} on springs ·
+          {{ house.walkToWater }} to the water
+        </p>
+      </div>
+
+      {% set columns = [
+        { "heading": "The house", "links": [
+          { "href": "rooms/", "label": "The rooms" },
+          { "href": "the-build/", "label": "The build log" }
+        ]},
+        { "heading": "The list", "links": [
+          { "href": "list/", "label": "What joining means" },
+          { "href": "emails/", "label": "The five emails" }
+        ]},
+        { "heading": "The theme", "links": [
+          { "href": "components/", "label": "Components" }
+        ]}
+      ] %}
+
+      {% for column in columns %}
+      <nav aria-label="{{ column.heading }}">
+        <h2 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+          {{ column.heading }}
+        </h2>
+        <ul class="mt-4 flex flex-col gap-2.5">
+          {% for link in column.links %}
+          <li>
+            <a
+              href="{{ root }}{{ link.href }}"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >{{ link.label }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endfor %}
+    </div>
+
+    <p class="mt-12 border-t border-hairline pt-7 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+      Nothing on this site is bookable. No deposit is taken at any stage.
+    </p>
+  </div>
+</footer>

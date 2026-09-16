@@ -1,0 +1,31 @@
+{# The two glyphs are Lucide's `moon` and `sun` paths, inlined: the HTML edition
+   has no bundler and no package to import from, and the React edition's
+   `lucide-react` is the same drawing. Hand-rolling an icon is a bug; copying
+   the set's own path data is not.
+
+   ── A DECLARED DIVERGENCE FROM THE REACT EDITION ─────────────────────────
+   React ships a two-button group (`Dark` | `Light`) with `aria-pressed`,
+   because a single button reading "dark" is ambiguous about whether it names
+   the state you are in or the one you would get. This edition ships **one
+   button**, and resolves that ambiguity a different way: the label names the
+   destination in words — "Switch to light" — which is unambiguous without
+   needing a second control to compare against.
+
+   Both labels are in the document and CSS picks one off `html.light`, so the
+   button is never briefly wrong on a slow load and the swap costs no script.
+   Recorded in `html/README.md`'s boundary ledger under *deliberately changed*.
+#}
+<button
+  type="button"
+  data-mode-toggle
+  class="flex items-center gap-2 rounded-themed border px-3 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) {% if page.onPlate %}border-(--plate-ink-muted)/40 text-(--plate-ink) hover:bg-(--plate-ink)/15{% else %}border-border text-foreground hover:bg-secondary{% endif %}"
+>
+  <span data-mode-icon="dark" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    Switch to light
+  </span>
+  <span data-mode-icon="light" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    Switch to dark
+  </span>
+</button>

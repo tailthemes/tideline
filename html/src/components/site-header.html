@@ -1,0 +1,72 @@
+{# The header overlays the hero plate on `/` and sits on a token ground
+   everywhere else, so it carries two ink registers. `page.onPlate` picks one.
+
+   That is not decoration: the photographs stay dark in BOTH modes (AGENTS.md
+   §The one sanctioned deviation), so a wordmark using `--foreground` over the
+   estuary goes near-black the moment a reader switches to light. The
+   `--plate-ink` family exists to not invert. #}
+{% set ink = "text-(--plate-ink)" if page.onPlate else "text-foreground" %}
+{% set inkMuted = "text-(--plate-ink-muted)" if page.onPlate else "text-muted-foreground" %}
+{% set inkActive = "text-(--plate-ink-brass)" if page.onPlate else "text-(--primary-ink)" %}
+{% set navItems = [
+  { "href": "/rooms", "label": "The rooms" },
+  { "href": "/the-build", "label": "The build" },
+  { "href": "/emails", "label": "The emails" },
+  { "href": "/list", "label": "The list" }
+] %}
+
+<header class="absolute inset-x-0 top-0 z-20">
+  <div class="mx-auto flex w-full max-w-[84rem] items-center justify-between gap-6 px-6 py-6 sm:px-10">
+    <a
+      href="{{ root }}"
+      {% if page.path == "/" %}aria-current="page"{% endif %}
+      class="rounded-themed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+    >
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-wordmark) uppercase {{ ink }}">
+        <span data-brand-name>{{ house.name }}</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-7 md:flex">
+      {% for item in navItems %}
+      <a
+        href="{{ root }}{{ item.href | replace('/', '', 1) }}/"
+        {% if page.path == item.href %}aria-current="page"{% endif %}
+        class="rounded-themed font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) {% if page.path == item.href %}{{ inkActive }}{% else %}{{ inkMuted }} hover:{{ ink }}{% endif %}"
+        >{{ item.label }}</a
+      >
+      {% endfor %}
+    </nav>
+
+    <div class="hidden items-center gap-4 md:flex">
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase {{ inkMuted }}">{{ house.where }}</span>
+      {% include "components/mode-toggle.html" %}
+    </div>
+
+    {# Mobile: a native `<details>`. Not a modal layer — the page behind stays
+       reachable and scrollable — so it needs no focus trap and no scroll lock.
+       Expanded state is implicit on `<summary>`; Escape close and focus return
+       are absent and recorded in AGENTS.md's HTML ledger. #}
+    <details class="relative md:hidden">
+      <summary
+        class="flex cursor-pointer list-none items-center gap-2 rounded-themed border px-3 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring {% if page.onPlate %}border-(--plate-ink-muted)/40 text-(--plate-ink){% else %}border-border text-foreground{% endif %}"
+      >
+        <span data-marker="closed">Menu</span>
+        <span data-marker="open">Close</span>
+      </summary>
+      <div class="absolute right-0 top-full z-30 mt-2 w-56 rounded-themed border border-border bg-card p-2 shadow-(--shadow-overlay)">
+        <nav aria-label="Primary, mobile" class="flex flex-col">
+          {% for item in navItems %}
+          <a
+            href="{{ root }}{{ item.href | replace('/', '', 1) }}/"
+            {% if page.path == item.href %}aria-current="page"{% endif %}
+            class="rounded-(--radius-inner) px-3 py-2.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase {% if page.path == item.href %}text-(--primary-ink){% else %}text-foreground hover:bg-secondary{% endif %}"
+            >{{ item.label }}</a
+          >
+          {% endfor %}
+        </nav>
+        <div class="mt-2 border-t border-border pt-3">{% include "components/mode-toggle.html" %}</div>
+      </div>
+    </details>
+  </div>
+</header>

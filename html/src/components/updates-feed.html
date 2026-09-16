@@ -1,0 +1,93 @@
+{# The build log — a changelog for a building, and the section that does the job
+   a testimonial block does on a normal marketing site. What a visitor is
+   actually deciding is "are these people real and is this happening"; dated
+   entries about lime taking three coats answer that, and an invented five-star
+   quote does not. That is why the testimonial row is declared out. #}
+{% set level = updatesLevel | default(2) %}
+{% set shown = updates.slice(0, updateLimit) if updateLimit else updates %}
+
+<section aria-labelledby="{{ headingId | default('updates') }}" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The build log</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+
+      {% if level == 1 %}
+      <h1
+        id="{{ headingId | default('updates') }}"
+        class="mt-5 max-w-[20ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground"
+      >
+        What has actually happened
+      </h1>
+      {% else %}
+      <h2
+        id="{{ headingId | default('updates') }}"
+        class="mt-5 max-w-[20ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        What has actually happened
+      </h2>
+      {% endif %}
+
+      <p class="mt-5 max-w-[46ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Four entries in twelve months, which is the real rate. We would rather write nothing
+        than write something.
+      </p>
+    </div>
+
+    {% set alt = {
+      "estuary": "The Dyfi estuary at dusk from the dune above the house.",
+      "materials": "Five material samples laid out on dark slate, photographed from above.",
+      "room": "An unfinished room: bare lime plaster, a deep window, a step-ladder.",
+      "marram": "Dry marram grass on the dune, bending in the wind.",
+      "slate": "Eleven tonnes of riven Welsh slate stacked on bearers in the yard.",
+      "table": "The long oak table under the estuary window in a bare plastered room."
+    } %}
+    {% set plateFile = {
+      "estuary": "tl-hero.jpg", "materials": "tl-materials.jpg", "room": "tl-room.jpg",
+      "marram": "tl-marram.jpg", "slate": "tl-slate.jpg", "table": "tl-table.jpg"
+    } %}
+
+    <ol class="mt-14 flex flex-col gap-14 sm:gap-20">
+      {% for update in shown %}
+      <li data-tl-reveal>
+        {# Entries alternate their plate side — not for variety, but because the
+           alternation stops four stacked rows reading as a table of contents. #}
+        <article class="grid items-center gap-8 {% if update.plate %}lg:grid-cols-2 lg:gap-14{% endif %}">
+          {% if update.plate %}
+          <img
+            src="{{ root }}assets/img/{{ plateFile[update.plate] }}"
+            alt="{{ alt[update.plate] }}"
+            width="1600"
+            height="1067"
+            class="aspect-[3/2] w-full rounded-themed object-cover {% if loop.index0 % 2 == 1 %}lg:order-2{% endif %}"
+          >
+          {% endif %}
+          <div class="{% if loop.index0 % 2 == 1 %}lg:order-1{% endif %}">
+            <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase tabular-nums text-(--primary-ink)">
+              {{ update.dateLabel }}
+            </p>
+            <h3 class="mt-3.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+              {{ update.title }}
+            </h3>
+            <p class="mt-4 max-w-[46ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+              {{ update.body }}
+            </p>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+
+    {% if updateLimit and updateLimit < updates.length %}
+    <p class="mt-12">
+      <a
+        href="{{ root }}the-build/"
+        class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink) underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >The whole log</a
+      >
+    </p>
+    {% endif %}
+  </div>
+</section>

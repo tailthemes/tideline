@@ -1,0 +1,55 @@
+{# The signature, in the HTML edition. Same five samples, same five tokens, same
+   argument — authored markup, not a render of the React component. #}
+<section aria-labelledby="{{ headingId | default('board') }}" class="py-20 sm:py-28">
+  <div class="mx-auto grid w-full max-w-[84rem] items-center gap-12 px-6 sm:px-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+    <div data-tl-reveal>
+      <img
+        src="{{ root }}assets/img/tl-materials.jpg"
+        alt="Five material samples laid out on dark slate and photographed from above: riven slate, oiled oak, folded oatmeal wool, a lime plaster tile, and a polished brass plate."
+        width="1600"
+        height="1067"
+        class="w-full rounded-themed"
+      >
+    </div>
+
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The board</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="{{ headingId | default('board') }}"
+        class="mt-5 text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        {{ heading | default("The palette is a photograph of the building") }}
+      </h2>
+      <p class="mt-5 max-w-[38ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Five samples went to the joiner in March. Every colour on this site is one of them
+        measured, so the swatch and the plate cannot disagree.
+      </p>
+
+      <dl class="mt-8 border-t border-hairline">
+        {% for material in materials %}
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var({{ material.token }})"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              {{ material.name }}
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              {{ material.source }}
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            {{ material.code }}
+          </dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </div>
+  </div>
+</section>

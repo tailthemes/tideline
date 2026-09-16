@@ -1,0 +1,115 @@
+{# The five emails, rendered for the page. Both editions read the same source
+   (`src/emails/sequence.ts`, emitted into `data/marram.json`), so neither can
+   show a version of an email the sendable document does not contain. #}
+{% import "components/icons.html" as ic %}
+{% set level = emailsLevel | default(2) %}
+{% set shown = emails.slice(0, emailLimit) if emailLimit else emails %}
+{# The sequence names plates SYMBOLICALLY — `room`, `marram` — never by
+   filename, because a filename literal in the React edition's `.ts`
+   source breaks the text-only registry projection. This edition is a
+   template rather than TypeScript, so the mapping to real files lives
+   here, which is the one place a filename is safe. #}
+{% set plateFile = { "room": "tl-room.jpg", "marram": "tl-marram.jpg" } %}
+
+<section aria-labelledby="{{ headingId | default('emails') }}" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The sequence</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <div class="mt-5 flex flex-wrap items-end justify-between gap-6">
+        {% if level == 1 %}
+        <h1
+          id="{{ headingId | default('emails') }}"
+          class="max-w-[22ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground"
+        >
+          Five emails, which is the part nobody ships
+        </h1>
+        {% else %}
+        <h2
+          id="{{ headingId | default('emails') }}"
+          class="max-w-[22ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+        >
+          Five emails, which is the part nobody ships
+        </h2>
+        {% endif %}
+        <p class="max-w-[34ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+          A waitlist lives in the inbox, not on the page. These are real table-based
+          documents with a plain-text part, built from the same tokens.
+        </p>
+      </div>
+    </div>
+
+    <ol class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {% for email in shown %}
+      <li data-tl-reveal class="flex flex-col overflow-hidden rounded-themed border border-border bg-card">
+        <div class="flex items-baseline justify-between gap-3 border-b border-border px-5 py-3.5">
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+            {{ email.subject }}
+          </span>
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            {{ email.id }}
+          </span>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-4 px-5 py-6">
+          <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+            {{ email.kicker }}
+          </p>
+          <h3 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+            {{ email.heading }}
+          </h3>
+
+          {% for block in email.blocks.slice(0, 2) %}
+            {% if block.kind == "text" %}
+            <p class="text-(length:--text-small) leading-(--leading-small) text-foreground">{{ block.text }}</p>
+            {% elif block.kind == "figure" %}
+            <div>
+              <p class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tabular-nums text-(--primary-ink)">
+                {{ block.figure }}
+              </p>
+              <p class="mt-1.5 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+                {{ block.caption }}
+              </p>
+            </div>
+            {% elif block.kind == "plate" and plateFile[block.plate] %}
+            <img
+              src="{{ root }}assets/img/{{ plateFile[block.plate] }}"
+              alt="{{ block.alt }}"
+              width="1600"
+              height="1067"
+              class="w-full rounded-(--radius-inner) border border-border"
+            >
+            {% endif %}
+          {% endfor %}
+
+          {% if email.cta %}
+          <p class="mt-auto pt-2">
+            <span class="inline-block rounded-(--radius-inner) bg-primary px-3.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-primary-foreground">
+              {{ email.cta.label }}
+            </span>
+          </p>
+          {% endif %}
+        </div>
+
+        {# When it arrives is a time, and a clock says "time" faster than the
+           word does — one of the two jobs an icon is allowed here. #}
+        <p class="flex items-center gap-2 border-t border-border px-5 py-3 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+          {{ ic.icon("clock", "size-3 shrink-0") }}{{ email.when }}
+        </p>
+      </li>
+      {% endfor %}
+    </ol>
+
+    {% if emailLimit %}
+    <p class="mt-10">
+      <a
+        href="{{ root }}emails/"
+        class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink) underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >All five, and when each one arrives</a
+      >
+    </p>
+    {% endif %}
+  </div>
+</section>

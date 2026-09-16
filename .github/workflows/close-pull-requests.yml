@@ -1,0 +1,45 @@
+name: Close pull requests
+
+# This repository is generated from its source at tailthemes.com, so a merged
+# patch is destroyed by the next release. Issues are the channel instead.
+#
+# pull_request_target is deliberate: it runs against the BASE ref with the base
+# repository's token, which is what lets this comment on a fork's pull request.
+# For the same reason nothing here checks out or runs the pull request's code,
+# and the token is granted one permission.
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              "Thanks for taking the time to write this.",
+              "",
+              "This repository is generated from Tideline's source at tailthemes.com, so a patch merged here would be overwritten by the next release. Pull requests are closed automatically for that reason, and for no other.",
+              "",
+              "Please open an issue describing the change. Fixes land at the source and ship to everyone in the next version. Forking is open, which is what the MIT license is for.",
+              "",
+              "https://tailthemes.com/themes/tideline?utm_source=github&utm_medium=readme&utm_campaign=tideline",
+            ].join("\n");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body,
+            });
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              state: "closed",
+            });

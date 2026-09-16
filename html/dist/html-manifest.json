@@ -1,0 +1,13 @@
+{
+  "slug": "tideline",
+  "engine": "nunjucks",
+  "runtime": "vanilla",
+  "routes": [
+    "index.html",
+    "rooms/index.html",
+    "the-build/index.html",
+    "emails/index.html",
+    "list/index.html",
+    "components/index.html"
+  ]
+}

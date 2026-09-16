@@ -1,0 +1,1275 @@
+<!doctype html>
+<html lang="en" class="tt-tideline" data-mode-key="tideline-mode">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The living styleguide: every token, primitive and section this theme ships, rendered from the same fixture the site runs on.">
+    <title>The parts · Marram</title>
+    
+    <script>try{if(localStorage.getItem("tideline-mode")==="light"){document.documentElement.classList.add("light")}}catch(error){}</script>
+    <link rel="stylesheet" href="../assets/theme.css">
+  </head>
+  <body class="min-h-screen min-w-80 bg-background font-sans text-foreground antialiased">
+    
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-themed focus:border focus:border-(--control-border) focus:bg-card focus:px-4 focus:py-3 focus:text-card-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-(length:--text-small) leading-(--leading-small) font-semibold"
+      >Skip to content</a
+    >
+
+
+<header class="absolute inset-x-0 top-0 z-20">
+  <div class="mx-auto flex w-full max-w-[84rem] items-center justify-between gap-6 px-6 py-6 sm:px-10">
+    <a
+      href="../"
+      class="rounded-themed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+    >
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-wordmark) uppercase text-foreground">
+        <span data-brand-name>Marram</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-7 md:flex">
+      <a
+        href="../rooms/"
+        class="rounded-themed font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) text-muted-foreground hover:text-foreground"
+        >The rooms</a
+      >
+      <a
+        href="../the-build/"
+        class="rounded-themed font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) text-muted-foreground hover:text-foreground"
+        >The build</a
+      >
+      <a
+        href="../emails/"
+        class="rounded-themed font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) text-muted-foreground hover:text-foreground"
+        >The emails</a
+      >
+      <a
+        href="../list/"
+        class="rounded-themed font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) text-muted-foreground hover:text-foreground"
+        >The list</a
+      >
+    </nav>
+
+    <div class="hidden items-center gap-4 md:flex">
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Dyfi estuary, Gwynedd</span>
+
+<button
+  type="button"
+  data-mode-toggle
+  class="flex items-center gap-2 rounded-themed border px-3 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) border-border text-foreground hover:bg-secondary"
+>
+  <span data-mode-icon="dark" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    Switch to light
+  </span>
+  <span data-mode-icon="light" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    Switch to dark
+  </span>
+</button>
+    </div>
+
+    
+    <details class="relative md:hidden">
+      <summary
+        class="flex cursor-pointer list-none items-center gap-2 rounded-themed border px-3 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-foreground"
+      >
+        <span data-marker="closed">Menu</span>
+        <span data-marker="open">Close</span>
+      </summary>
+      <div class="absolute right-0 top-full z-30 mt-2 w-56 rounded-themed border border-border bg-card p-2 shadow-(--shadow-overlay)">
+        <nav aria-label="Primary, mobile" class="flex flex-col">
+          <a
+            href="../rooms/"
+            class="rounded-(--radius-inner) px-3 py-2.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary"
+            >The rooms</a
+          >
+          <a
+            href="../the-build/"
+            class="rounded-(--radius-inner) px-3 py-2.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary"
+            >The build</a
+          >
+          <a
+            href="../emails/"
+            class="rounded-(--radius-inner) px-3 py-2.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary"
+            >The emails</a
+          >
+          <a
+            href="../list/"
+            class="rounded-(--radius-inner) px-3 py-2.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary"
+            >The list</a
+          >
+        </nav>
+        <div class="mt-2 border-t border-border pt-3">
+<button
+  type="button"
+  data-mode-toggle
+  class="flex items-center gap-2 rounded-themed border px-3 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) border-border text-foreground hover:bg-secondary"
+>
+  <span data-mode-icon="dark" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    Switch to light
+  </span>
+  <span data-mode-icon="light" class="contents">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    Switch to dark
+  </span>
+</button>
+</div>
+      </div>
+    </details>
+  </div>
+</header>
+    <main id="main" tabindex="-1" class="pt-32 sm:pt-40 focus:outline-none">
+
+<div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+  <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+    <span>The system</span>
+    <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+  </p>
+  <h1 class="mt-5 max-w-[18ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground">
+    Every part, in every state it ships in
+  </h1>
+  <p class="mt-6 max-w-[54ch] text-pretty text-(length:--text-lead) leading-(--leading-lead) text-muted-foreground">
+    The specimens below are the components themselves holding the props, not pictures of
+    them. A state shown here is a state that exists.
+  </p>
+</div>
+
+
+<section data-component="tokens">
+<div class="mx-auto mt-20 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">
+    Tokens
+  </h2>
+
+  <div class="mt-10 grid gap-12 lg:grid-cols-2">
+    <div>
+      <h3 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+        The materials
+      </h3>
+      <p class="mt-3 max-w-[42ch] text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+        Five samples, each carrying the token it is. The swatch and the photograph on the
+        board are the same decision.
+      </p>
+      <div class="mt-6 border-t border-hairline">
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--material-slate)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Riven slate · DS-04</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">Ffestiniog, 34 miles</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--material-slate</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--material-oak)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Oiled oak · OO-12</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">Powys, air-dried four years</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--material-oak</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--material-wool)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Oatmeal wool · OW-07</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">Trefriw mill</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--material-wool</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--material-plaster)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Lime plaster · LP-01</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">Mixed on site</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--material-plaster</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--material-brass)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Polished brass · BP-09</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">Birmingham, unlacquered</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--material-brass</code>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+        The surfaces
+      </h3>
+      <p class="mt-3 max-w-[42ch] text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+        Dark is the default ground. In light mode brass is a fill and never a graphic —
+        <code class="font-mono">--primary-ink</code> is what a rule or a mark uses, and
+        <code class="font-mono">--plate-ink</code> is what sits on a photograph, because the
+        photographs do not invert.
+      </p>
+      <div class="mt-6 border-t border-hairline">
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--background)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Page</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">the ground</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--background</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--card)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Card</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">panels, email frames</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--card</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--surface-sunken)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Sunken</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">the join seam</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--surface-sunken</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--primary)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Brass</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">fills only in light mode</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--primary</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--primary-ink)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Brass ink</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">rules, marks, links</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--primary-ink</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--plate-ink)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Plate ink</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">type on a photograph — same in both modes</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--plate-ink</code>
+        </div>
+        <div class="flex items-center gap-4 border-b border-hairline py-3">
+          <span aria-hidden="true" class="size-9 shrink-0 rounded-(--radius-inner) border border-border" style="background: var(--hairline)"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">Hairline</p>
+            <p class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">every band divider</p>
+          </div>
+          <code class="font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">--hairline</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mt-16 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+    The ladder · ratio 1.500
+  </h3>
+  <div class="mt-6 flex flex-col gap-5 border-t border-hairline pt-8">
+    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+      <span class="w-10 shrink-0 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">d4</span>
+      <span class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d4) leading-(--leading-d4) tracking-(--tracking-d4) text-foreground">Above the estuary</span>
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">5.0625rem</span>
+    </div>
+    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+      <span class="w-10 shrink-0 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">d3</span>
+      <span class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d3) leading-(--leading-d3) tracking-(--tracking-d3) text-foreground">Above the estuary</span>
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">3.375rem</span>
+    </div>
+    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+      <span class="w-10 shrink-0 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">d2</span>
+      <span class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground">Above the estuary</span>
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">2.25rem</span>
+    </div>
+    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+      <span class="w-10 shrink-0 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">d1</span>
+      <span class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) tracking-(--tracking-d1) text-foreground">Above the estuary</span>
+      <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">1.5rem</span>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+<section data-component="ui">
+<div class="mx-auto mt-24 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">
+    Parts
+  </h2>
+
+  <section data-component="ui/button" class="mt-10 border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/button</h3>
+    <div class="flex flex-wrap items-center gap-4 pb-12">
+      <button type="button" class="inline-flex items-center justify-center rounded-themed bg-primary px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground hover:bg-(--primary-hover) active:bg-(--primary-active) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">Join the list</button>
+      <button type="button" class="inline-flex items-center justify-center rounded-themed border border-(--control-border) px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-foreground hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">The build log</button>
+      <button type="button" disabled class="inline-flex cursor-not-allowed items-center justify-center rounded-themed bg-primary px-6 py-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground opacity-50">Joining…</button>
+    </div>
+  </section>
+
+  
+  <section data-component="ui/field" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/field</h3>
+    <div class="grid gap-8 pb-12 sm:grid-cols-2">
+      <div data-part="field" data-state="rest" class="flex flex-col gap-2">
+        <label for="sg-rest" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-rest"
+            type="email"
+            value=""
+            placeholder="you@example.com"
+            
+            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+      </div>
+      <div data-part="field" data-state="rest" class="flex flex-col gap-2">
+        <label for="sg-desc" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-desc"
+            type="email"
+            value=""
+            placeholder="you@example.com"
+            
+aria-describedby="sg-desc-message"            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+        <p id="sg-desc-message" data-part="field-message" data-kind="description" class="text-(length:--text-small) leading-(--leading-small) text-muted-foreground">We send five emails, then an invitation.</p>
+      </div>
+      <div data-part="field" data-state="invalid" class="flex flex-col gap-2">
+        <label for="sg-invalid" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-invalid"
+            type="email"
+            value="hello@"
+            placeholder="you@example.com"
+            aria-invalid="true"
+aria-describedby="sg-invalid-message"            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+        <p id="sg-invalid-message" data-part="field-message" data-kind="error" class="text-(length:--text-small) leading-(--leading-small) text-(--critical)">That does not look like an email address. Check it and try again.</p>
+      </div>
+      <div data-part="field" data-state="valid" class="flex flex-col gap-2">
+        <label for="sg-valid" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-valid"
+            type="email"
+            value="you@example.com"
+            placeholder="you@example.com"
+            
+aria-describedby="sg-valid-message"            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+        <p id="sg-valid-message" data-part="field-message" data-kind="success" class="text-(length:--text-small) leading-(--leading-small) text-(--positive)">Confirmed. You are number 1,205.</p>
+      </div>
+      <div data-part="field" data-state="read-only" class="flex flex-col gap-2">
+        <label for="sg-readonly" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-readonly"
+            type="email"
+            value="you@example.com"
+            placeholder="you@example.com"
+            readonly
+aria-describedby="sg-readonly-message"            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+        <p id="sg-readonly-message" data-part="field-message" data-kind="description" class="text-(length:--text-small) leading-(--leading-small) text-muted-foreground">Set when you confirmed. Write to us to change it.</p>
+      </div>
+      <div data-part="field" data-state="disabled" class="flex flex-col gap-2">
+        <label for="sg-disabled" data-part="field-label" class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Email address</label>
+        <div data-part="field-control">
+          <input
+            id="sg-disabled"
+            type="email"
+            value=""
+            placeholder="you@example.com"
+            disabled
+            class="w-full rounded-themed border border-(--field-border) bg-(--field) px-4 py-3.5 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-component="ui/accordion-disclosure" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/accordion-disclosure</h3>
+    <div class="max-w-2xl border-t border-hairline pb-12">
+      <div data-state="open">
+        <details class="border-b border-hairline" open>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+            <h4 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">Can I book a room?</h4>
+            <span aria-hidden="true" class="shrink-0 text-(--primary-ink)"><span data-marker="closed">+</span><span data-marker="open">−</span></span>
+          </summary>
+          <p class="pb-6 pr-10 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">No. Nothing is bookable and there is no deposit to pay.</p>
+        </details>
+      </div>
+      <div data-state="closed">
+        <details class="border-b border-hairline">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+            <h4 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">What does joining cost?</h4>
+            <span aria-hidden="true" class="shrink-0 text-(--primary-ink)"><span data-marker="closed">+</span><span data-marker="open">−</span></span>
+          </summary>
+          <p class="pb-6 pr-10 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">Nothing, and it never will.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section data-component="ui/eyebrow" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/eyebrow</h3>
+    <div class="flex max-w-md flex-col gap-5 pb-12">
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Opening May 2027 · the list is open</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <div class="bg-(--surface-sunken) p-5">
+        <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--plate-ink-brass)">
+          <span>The same eyebrow, on a plate</span>
+          <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section data-component="ui/stat" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">ui/stat</h3>
+    <dl class="flex flex-wrap gap-14 pb-12">
+      <div>
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">Rooms plastered</dt>
+        <dd class="mt-2.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) tabular-nums text-foreground">7 of 11</dd>
+      </div>
+      <div>
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">First season</dt>
+        <dd class="mt-2.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) tabular-nums text-foreground">40 <span class="text-(length:--text-body) text-muted-foreground">invitations</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section data-component="join-form" class="border-t border-hairline">
+    <h3 class="py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">join-form</h3>
+    <div class="max-w-lg pb-12">
+
+
+
+<div data-join class="">
+  <form data-join-form novalidate action="#" method="post">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start">
+      <div data-part="field" data-state="rest" class="flex flex-1 flex-col gap-2">
+        <label
+          for="styleguide-email"
+          data-part="field-label"
+          class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground"
+          >Email address</label
+        >
+        <div data-part="field-control">
+          <input
+            id="styleguide-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            class="h-(--control-height) w-full rounded-themed border border-(--field-border) bg-(--field) px-4 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+          >
+        </div>
+        <p
+          id="styleguide-email-message"
+          data-part="field-message"
+          class="text-(length:--text-small) leading-(--leading-small)"
+        ></p>
+      </div>
+
+      <button
+        type="submit"
+        class="h-(--control-height) inline-flex shrink-0 items-center justify-center rounded-themed bg-primary px-6 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground hover:bg-(--primary-hover) active:bg-(--primary-active) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) motion-safe:active:scale-[0.98]"
+      >
+        <span data-join-label>Join the list</span>
+      </button>
+    </div>
+  </form>
+
+  
+  <div
+    data-join-done
+    hidden
+    class="rounded-themed border border-(--primary-border) bg-(--primary-soft) px-5 py-4"
+  >
+    <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+      You are on the list
+    </p>
+    <p class="mt-2 text-(length:--text-body) leading-(--leading-body) text-foreground">
+      Check your inbox — there is one email there asking you to confirm, and nothing else
+      happens until you do.
+    </p>
+    <p class="mt-3 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+      You are number 1,205.
+    </p>
+  </div>
+</div>
+    </div>
+  </section>
+</div>
+
+</section>
+
+
+<div class="mx-auto mt-24 w-full max-w-[84rem] px-6 sm:px-10">
+  <h2 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) text-foreground">Sections</h2>
+  <p class="mt-4 max-w-[54ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+    Each one at full width, in the order a visitor meets it.
+  </p>
+</div>
+
+<div class="mt-12">
+  <section data-component="materials-board">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">materials-board</p>
+    </div>
+
+<section aria-labelledby="sg-board" class="py-20 sm:py-28">
+  <div class="mx-auto grid w-full max-w-[84rem] items-center gap-12 px-6 sm:px-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+    <div data-tl-reveal>
+      <img
+        src="../assets/img/tl-materials.jpg"
+        alt="Five material samples laid out on dark slate and photographed from above: riven slate, oiled oak, folded oatmeal wool, a lime plaster tile, and a polished brass plate."
+        width="1600"
+        height="1067"
+        class="w-full rounded-themed"
+      >
+    </div>
+
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The board</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="sg-board"
+        class="mt-5 text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        The palette is a photograph of the building
+      </h2>
+      <p class="mt-5 max-w-[38ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Five samples went to the joiner in March. Every colour on this site is one of them
+        measured, so the swatch and the plate cannot disagree.
+      </p>
+
+      <dl class="mt-8 border-t border-hairline">
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var(--material-slate)"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              Riven slate
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              Ffestiniog, 34 miles
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            DS-04
+          </dd>
+        </div>
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var(--material-oak)"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              Oiled oak
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              Powys, air-dried four years
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            OO-12
+          </dd>
+        </div>
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var(--material-wool)"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              Oatmeal wool
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              Trefriw mill
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            OW-07
+          </dd>
+        </div>
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var(--material-plaster)"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              Lime plaster
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              Mixed on site
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            LP-01
+          </dd>
+        </div>
+        <div class="grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-hairline py-3.5">
+          <span
+            aria-hidden="true"
+            class="size-7 rounded-(--radius-inner) border border-border"
+            style="background: var(--material-brass)"
+          ></span>
+          <div>
+            <dt class="text-(length:--text-small) leading-(--leading-small) font-medium text-foreground">
+              Polished brass
+            </dt>
+            <dd class="text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+              Birmingham, unlacquered
+            </dd>
+          </div>
+          <dd class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            BP-09
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+  </section>
+
+  <section data-component="room-index">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">room-index</p>
+    </div>
+
+<section aria-labelledby="sg-rooms" class="pb-20 sm:pb-28">
+  <div class="mx-auto grid w-full max-w-[84rem] items-center gap-10 px-6 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+    <div data-tl-reveal class="order-2 lg:order-1">
+      <div class="relative mx-auto w-2/3 max-w-xs lg:w-3/4">
+        <img
+          src="../assets/img/tl-key.png"
+          alt="A brass room tag on a worn leather fob with one iron key, photographed from above."
+          width="1200"
+          height="1200"
+          class="w-full drop-shadow-(--shadow-cutout)"
+        >
+        <span
+          aria-hidden="true"
+          class="absolute left-[50.5%] top-[55%] -translate-x-1/2 -translate-y-1/2 rotate-[-1.5deg] font-mono tabular-nums text-(length:--text-d2) text-[color-mix(in_oklab,var(--primary-foreground)_78%,transparent)] mix-blend-multiply"
+          >04</span
+        >
+      </div>
+    </div>
+
+    <div data-tl-reveal class="order-1 lg:order-2">
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The rooms</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+
+      <h2
+        id="sg-rooms"
+        class="mt-5 text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        Eleven tags on eleven hooks
+      </h2>
+
+      <p class="mt-5 max-w-[40ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Every room has a name, a gable and a stage it has got to.
+        <span class="tabular-nums">3</span> of the 11
+        are spoken for by the people who funded the roof.
+      </p>
+
+      <ul class="mt-8 flex flex-wrap gap-2">
+        <li>
+          <a
+  href="../rooms/#room-01"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-(--primary-border) bg-accent text-(--primary-ink)"
+  >01 Cocklers</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-02"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-(--primary-border) bg-accent text-(--primary-ink)"
+  >02 Ferryman</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-03"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >03 Saltings</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-04"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-(--primary-border) bg-accent text-(--primary-ink)"
+  >04 East gable</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-05"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >05 Marram</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-06"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >06 Bar</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-07"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >07 Osprey</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-08"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >08 Wick</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-09"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >09 Kiln</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-10"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >10 Netloft</a
+>
+
+        </li>
+        <li>
+          <a
+  href="../rooms/#room-11"
+  class="inline-flex items-center gap-2 rounded-themed border px-2.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase motion-safe:transition-colors motion-safe:duration-(--duration-micro) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring border-border text-muted-foreground hover:text-foreground"
+  >11 Long room</a
+>
+
+        </li>
+      </ul>
+      <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+        Marked rooms are wave one — furnished and released first.
+      </p>
+    </div>
+  </div>
+</section>
+  </section>
+
+  <section data-component="updates-feed">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">updates-feed</p>
+    </div>
+
+
+<section aria-labelledby="sg-updates" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The build log</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+
+      <h2
+        id="sg-updates"
+        class="mt-5 max-w-[20ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        What has actually happened
+      </h2>
+
+      <p class="mt-5 max-w-[46ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Four entries in twelve months, which is the real rate. We would rather write nothing
+        than write something.
+      </p>
+    </div>
+
+
+    <ol class="mt-14 flex flex-col gap-14 sm:gap-20">
+      <li data-tl-reveal>
+        
+        <article class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <img
+            src="../assets/img/tl-slate.jpg"
+            alt="Eleven tonnes of riven Welsh slate stacked on bearers in the yard."
+            width="1600"
+            height="1067"
+            class="aspect-[3/2] w-full rounded-themed object-cover "
+          >
+          <div class="">
+            <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase tabular-nums text-(--primary-ink)">
+              12 Aug 2026
+            </p>
+            <h3 class="mt-3.5 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+              The slate landed
+            </h3>
+            <p class="mt-4 max-w-[46ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+              Eleven tonnes from Ffestiniog, stacked in the yard for a fortnight while the roofers finish the west pitch. It is a colder grey than the sample, which we prefer and did not plan.
+            </p>
+          </div>
+        </article>
+      </li>
+    </ol>
+
+    <p class="mt-12">
+      <a
+        href="../the-build/"
+        class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink) underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >The whole log</a
+      >
+    </p>
+  </div>
+</section>
+  </section>
+
+  <section data-component="email-sequence">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">email-sequence</p>
+    </div>
+
+
+
+<section aria-labelledby="sg-emails" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>The sequence</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <div class="mt-5 flex flex-wrap items-end justify-between gap-6">
+        <h2
+          id="sg-emails"
+          class="max-w-[22ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+        >
+          Five emails, which is the part nobody ships
+        </h2>
+        <p class="max-w-[34ch] text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+          A waitlist lives in the inbox, not on the page. These are real table-based
+          documents with a plain-text part, built from the same tokens.
+        </p>
+      </div>
+    </div>
+
+    <ol class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <li data-tl-reveal class="flex flex-col overflow-hidden rounded-themed border border-border bg-card">
+        <div class="flex items-baseline justify-between gap-3 border-b border-border px-5 py-3.5">
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+            Confirm your address
+          </span>
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            01
+          </span>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-4 px-5 py-6">
+          <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+            Email 01
+          </p>
+          <h3 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+            One tap and you&#39;re on the list
+          </h3>
+
+            <p class="text-(length:--text-small) leading-(--leading-small) text-foreground">Somebody put this address on the list for Marram. If that was you, confirm it below and we will stop bothering you until there is something true to say.</p>
+            <p class="text-(length:--text-small) leading-(--leading-small) text-foreground">If it wasn&#39;t you, ignore this. Nothing happens, and the address is deleted in seven days.</p>
+
+          <p class="mt-auto pt-2">
+            <span class="inline-block rounded-(--radius-inner) bg-primary px-3.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-primary-foreground">
+              Confirm this address
+            </span>
+          </p>
+        </div>
+
+        
+        <p class="flex items-center gap-2 border-t border-border px-5 py-3 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0">
+<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+Immediately
+        </p>
+      </li>
+      <li data-tl-reveal class="flex flex-col overflow-hidden rounded-themed border border-border bg-card">
+        <div class="flex items-baseline justify-between gap-3 border-b border-border px-5 py-3.5">
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+            You&#39;re on the list
+          </span>
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            02
+          </span>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-4 px-5 py-6">
+          <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+            Email 02
+          </p>
+          <h3 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+            You&#39;re on the list
+          </h3>
+
+            <div>
+              <p class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tabular-nums text-(--primary-ink)">
+                1,204
+              </p>
+              <p class="mt-1.5 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+                your place in the queue
+              </p>
+            </div>
+            <p class="text-(length:--text-small) leading-(--leading-small) text-foreground">The first season goes out as 40 invitations in two waves — February and April. Everyone here gets forty-eight hours before the public each time.</p>
+
+          <p class="mt-auto pt-2">
+            <span class="inline-block rounded-(--radius-inner) bg-primary px-3.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-primary-foreground">
+              What the waves mean
+            </span>
+          </p>
+        </div>
+
+        
+        <p class="flex items-center gap-2 border-t border-border px-5 py-3 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0">
+<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+Straight after confirming
+        </p>
+      </li>
+      <li data-tl-reveal class="flex flex-col overflow-hidden rounded-themed border border-border bg-card">
+        <div class="flex items-baseline justify-between gap-3 border-b border-border px-5 py-3.5">
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+            Two rooms, if you know the estuary
+          </span>
+          <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+            03
+          </span>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-4 px-5 py-6">
+          <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+            Email 03
+          </p>
+          <h3 class="font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground">
+            The only ask, and it is a small one
+          </h3>
+
+            <img
+              src="../assets/img/tl-marram.jpg"
+              alt="Dry marram grass on the dune above the house, bending in the wind."
+              width="1600"
+              height="1067"
+              class="w-full rounded-(--radius-inner) border border-border"
+            >
+            <p class="text-(length:--text-small) leading-(--leading-small) text-foreground">We are not advertising this and we are not going to. The list has grown by people telling one other person, which is the rate we can actually build for.</p>
+
+          <p class="mt-auto pt-2">
+            <span class="inline-block rounded-(--radius-inner) bg-primary px-3.5 py-2 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-primary-foreground">
+              Copy the link
+            </span>
+          </p>
+        </div>
+
+        
+        <p class="flex items-center gap-2 border-t border-border px-5 py-3 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0">
+<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+About a fortnight later
+        </p>
+      </li>
+    </ol>
+
+    <p class="mt-10">
+      <a
+        href="../emails/"
+        class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink) underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >All five, and when each one arrives</a
+      >
+    </p>
+  </div>
+</section>
+  </section>
+
+  <section data-component="access-note">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">access-note</p>
+    </div>
+
+<section aria-labelledby="access" class="border-t border-hairline bg-(--surface-sunken) py-16 sm:py-20">
+  <div class="mx-auto w-full max-w-[38rem] px-6 sm:px-10">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Getting in</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="access"
+        class="mt-5 flex items-center gap-3 font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d1) leading-(--leading-d1) text-foreground"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-(--primary-ink)">
+<circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg>
+
+        What the building will and will not do
+      </h2>
+      <div class="mt-5 flex flex-col gap-4 text-pretty text-(length:--text-body) leading-(--leading-body) text-foreground">
+        <p>
+          <strong class="font-medium">Ferryman</strong> is step-free from the
+          yard door and will have a level shower. The other
+          10 are up at least one flight, and the two on
+          the second floor are behind a low door that six foot two clears and six foot four
+          does not.
+        </p>
+        <p>
+          We looked at a lift. It does not fit the stair core of a building this old without
+          taking out the core, and taking out the core is not something the building
+          survives. That is a limitation of the house, not a decision we are pleased with,
+          and it is better said here than discovered on arrival.
+        </p>
+        <p class="text-muted-foreground">
+          If you want to know something specific about a room before the list opens, ask and
+          we will measure it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+  </section>
+
+  <section data-component="join-seam">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">join-seam</p>
+    </div>
+<section aria-labelledby="join" class="border-t border-hairline bg-(--surface-sunken) py-20 sm:py-24">
+  <div class="mx-auto grid w-full max-w-[84rem] gap-10 px-6 sm:px-10 lg:grid-cols-2 lg:items-end lg:gap-16">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>Opening May 2027</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="join"
+        class="mt-5 max-w-[16ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        Nothing to book. A list to be on.
+      </h2>
+      <p class="mt-5 max-w-[44ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        Five emails over the next year, and then an invitation forty-eight hours before
+        anybody else gets one.
+      </p>
+    </div>
+
+    <div data-tl-reveal>
+
+
+
+<div data-join class="">
+  <form data-join-form novalidate action="#" method="post">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start">
+      <div data-part="field" data-state="rest" class="flex flex-1 flex-col gap-2">
+        <label
+          for="styleguide-email"
+          data-part="field-label"
+          class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground"
+          >Email address</label
+        >
+        <div data-part="field-control">
+          <input
+            id="styleguide-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            class="h-(--control-height) w-full rounded-themed border border-(--field-border) bg-(--field) px-4 text-(length:--text-body) leading-(--leading-body) text-foreground placeholder:text-muted-foreground/80 aria-[invalid=true]:border-(--critical) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+          >
+        </div>
+        <p
+          id="styleguide-email-message"
+          data-part="field-message"
+          class="text-(length:--text-small) leading-(--leading-small)"
+        ></p>
+      </div>
+
+      <button
+        type="submit"
+        class="h-(--control-height) inline-flex shrink-0 items-center justify-center rounded-themed bg-primary px-6 font-mono text-(length:--text-caption) leading-(--leading-caption) font-medium tracking-(--tracking-label) uppercase text-primary-foreground hover:bg-(--primary-hover) active:bg-(--primary-active) disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro) motion-safe:active:scale-[0.98]"
+      >
+        <span data-join-label>Join the list</span>
+      </button>
+    </div>
+  </form>
+
+  
+  <div
+    data-join-done
+    hidden
+    class="rounded-themed border border-(--primary-border) bg-(--primary-soft) px-5 py-4"
+  >
+    <p class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+      You are on the list
+    </p>
+    <p class="mt-2 text-(length:--text-body) leading-(--leading-body) text-foreground">
+      Check your inbox — there is one email there asking you to confirm, and nothing else
+      happens until you do.
+    </p>
+    <p class="mt-3 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+      You are number 1,205.
+    </p>
+  </div>
+</div>
+      <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+        1,204 ahead of you · 7 of 11 rooms plastered
+      </p>
+    </div>
+  </div>
+</section>
+  </section>
+
+  <section data-component="site-header">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">site-header</p>
+      <p class="pb-12 text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        At the top of this page, and of every route. It carries two ink registers — on a
+        photograph, and on a token ground.
+      </p>
+    </div>
+  </section>
+
+  <section data-component="site-footer">
+    <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+      <p class="border-t border-hairline py-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">site-footer</p>
+    </div>
+  </section>
+</div>
+    </main>
+<footer class="border-t border-hairline py-14">
+  <div class="mx-auto w-full max-w-[84rem] px-6 sm:px-10">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div>
+        <span class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-wordmark) uppercase text-foreground">
+          <span data-brand-name>Marram</span>
+        </span>
+        
+        <ul class="mt-4 flex max-w-[32ch] flex-col gap-2 text-(length:--text-small) leading-(--leading-small) text-muted-foreground">
+          <li class="flex items-start gap-2.5">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-3.5 shrink-0">
+<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+
+            An eleven-room house above the Dyfi estuary, opening May 2027.
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0">
+<path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg>
+Nearest station Penhelyg.
+          </li>
+        </ul>
+        <p class="mt-4 font-mono text-(length:--text-caption) leading-(--leading-caption) tabular-nums text-muted-foreground">
+          7 of 11 rooms plastered · 4.1m on springs ·
+          600m to the water
+        </p>
+      </div>
+
+
+      <nav aria-label="The house">
+        <h2 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+          The house
+        </h2>
+        <ul class="mt-4 flex flex-col gap-2.5">
+          <li>
+            <a
+              href="../rooms/"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >The rooms</a
+            >
+          </li>
+          <li>
+            <a
+              href="../the-build/"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >The build log</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <nav aria-label="The list">
+        <h2 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+          The list
+        </h2>
+        <ul class="mt-4 flex flex-col gap-2.5">
+          <li>
+            <a
+              href="../list/"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >What joining means</a
+            >
+          </li>
+          <li>
+            <a
+              href="../emails/"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >The five emails</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <nav aria-label="The theme">
+        <h2 class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-muted-foreground">
+          The theme
+        </h2>
+        <ul class="mt-4 flex flex-col gap-2.5">
+          <li>
+            <a
+              href="../components/"
+              class="rounded-themed text-(length:--text-small) leading-(--leading-small) text-foreground hover:text-(--primary-ink) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring motion-safe:transition-colors motion-safe:duration-(--duration-micro)"
+              >Components</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="mt-12 border-t border-hairline pt-7 font-mono text-(length:--text-caption) leading-(--leading-caption) text-muted-foreground">
+      Nothing on this site is bookable. No deposit is taken at any stage.
+    </p>
+  </div>
+</footer>
+    <script defer src="../assets/main.js"></script>
+  </body>
+</html>

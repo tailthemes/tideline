@@ -1,0 +1,57 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+{# `/emails` — the route that sells the differentiator. All five, then the
+   technical notes written to the BUYER rather than in the house's voice. That
+   register break is deliberate and is the only one in the theme: this is where
+   somebody evaluating the template wants to know whether the documents survive
+   Outlook, and answering that in a Welsh hotel's voice would be hiding it. #}
+{% set emailsLevel = 1 %}
+{% set headingId = "emails-title" %}
+{% include "components/email-sequence.html" %}
+
+<section aria-labelledby="email-notes" class="border-t border-hairline py-20 sm:py-28">
+  <div class="mx-auto grid w-full max-w-[84rem] gap-12 px-6 sm:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <div data-tl-reveal>
+      <p class="flex items-center gap-3.5 font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-eyebrow) uppercase text-(--primary-ink)">
+        <span>What you get</span>
+        <span aria-hidden="true" class="h-px flex-1 bg-current opacity-60"></span>
+      </p>
+      <h2
+        id="email-notes"
+        class="mt-5 max-w-[16ch] text-balance font-(family-name:--font-display) font-(number:--weight-display) text-(length:--text-d2) leading-(--leading-d2) tracking-(--tracking-d2) text-foreground"
+      >
+        Built for inboxes, not for a screenshot
+      </h2>
+      <p class="mt-5 max-w-[40ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-muted-foreground">
+        <span class="font-mono tabular-nums">{{ emails.length }}</span> documents in
+        <code class="font-mono">src/emails/</code>, each with an HTML and a plain-text part.
+      </p>
+    </div>
+
+    {% set notes = [
+      { "term": "Tables, not flexbox", "detail": "Outlook on Windows renders through Word, which supports neither flexbox nor grid. Every column in these documents is a td." },
+      { "term": "Inline styles only", "detail": "Gmail strips head styles in some contexts and rewrites class names in others. Nothing here depends on a selector matching." },
+      { "term": "Tokens inlined as hex", "detail": "var() does not resolve in most clients. Each value is copied from theme.css with the token it came from named beside it, so a rebrand is a find-and-replace with a map." },
+      { "term": "Dark by declaration", "detail": "color-scheme and supported-color-schemes are set to dark so the clients that invert light emails leave these alone, and they match the site instead of becoming mud." },
+      { "term": "A real plain-text part", "detail": "renderText() builds it from the same source. HTML-only mail is filtered harder, and the text part is also the accessible fallback." },
+      { "term": "One source, two renderers", "detail": "The page you are reading and the documents themselves both render src/emails/sequence.ts. A preview built separately is a preview that lies the first time somebody edits one and not the other." }
+    ] %}
+
+    <dl data-tl-reveal class="border-t border-hairline">
+      {% for note in notes %}
+      <div class="border-b border-hairline py-5">
+        <dt class="font-mono text-(length:--text-caption) leading-(--leading-caption) tracking-(--tracking-label) uppercase text-(--primary-ink)">
+          {{ note.term }}
+        </dt>
+        <dd class="mt-2.5 max-w-[62ch] text-pretty text-(length:--text-body) leading-(--leading-body) text-foreground">
+          {{ note.detail }}
+        </dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+{% include "components/join-seam.html" %}
+{% endblock %}

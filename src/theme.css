@@ -1,0 +1,450 @@
+/* tideline — the whole design system. Nothing else in this theme carries a
+   colour, a size or a duration.
+
+   Dark-first (ADR-006 + owner, 2026-08-28): the default ground is the near-black
+   plate the photography was shot for, and the light mode inverts the page
+   *around* the photographs rather than with them. The estuary plates stay dark
+   in both modes; that is the theme's one sanctioned deviation and the argument
+   is in AGENTS.md.
+
+   Every pair below was computed before this file existed — the receipt is
+   ops/design/tideline-2026-08-28.md §Colour. Light mode's brass is the case
+   worth knowing: #c9a227 on the cream ground is 1.88:1, so in light mode brass
+   is a FILL ONLY (a button with dark ink on it) and every brass *graphic* —
+   eyebrow rules, marks, figures — switches to --primary-ink at 5.35:1. Using
+   flat --primary for a hairline in light mode is a bug, not a preference. */
+
+:root,
+.tt-tideline,
+.dark,
+.tt-tideline.dark {
+  --background: #0d0f0e;
+  --foreground: #ece7dc;
+  --card: #141816;
+  --card-foreground: #ece7dc;
+  --surface-raised: #1b201d;
+  --surface-sunken: #0a0c0b;
+
+  --primary: #c9a227;
+  --primary-foreground: #17140a;
+  /* Ramp direction, dark mode: LIGHTER. --primary-foreground is near-black ink,
+     so lightening the brass is what raises its contrast (7.61 → 9.12 → 10.83).
+     CONTRACT §Colour construction requires the direction be recorded, not
+     assumed; the opposite direction fails AA at the press, which is how Kiln
+     shipped 3.75:1. */
+  --primary-hover: #d9b243;
+  --primary-active: #e6c364;
+  --primary-ink: #e0bb4a;
+  --primary-soft: #2b2410;
+  --primary-border: #6d5a1c;
+
+  /* accent_mode: monochrome-plus-spot, ADR-008 branch (b) — the spot's own
+     wash. H 88.6 sits 1.1° from --primary's 89.7 (inside ±15°) at C 0.041,
+     under half the primary's 0.138. It appears as a ground beneath brass ink
+     and nowhere else; the closed list is in AGENTS.md. */
+  --accent: #3a3218;
+  --accent-foreground: #ece7dc;
+
+  --secondary: #1f2421;
+  --secondary-foreground: #ece7dc;
+  --secondary-hover: #262c28;
+  --secondary-active: #2e3530;
+
+  --muted: #171b19;
+  --muted-foreground: #9ba39c;
+
+  --border: #2a302c;
+  --hairline: #363d38;
+  --ring: #c9a227;
+
+  --field: #10130f;
+  --field-border: #333a35;
+  --control-border: #6b736c;
+  --selection: #23291f;
+  --selection-border: #5d6a4a;
+  --selection-foreground: #ece7dc;
+
+  /* The scrim under hero type. Verified against the plate's actual pixels, not
+     an assumed ground: darkest 17.11:1, mean 15.12:1, brightest 8.98:1. */
+  --scrim: #080a09;
+  --shadow-color: #000000;
+  --shadow-raised: 0 1px 2px color-mix(in oklab, var(--shadow-color) 55%, transparent);
+  --shadow-overlay: 0 18px 40px color-mix(in oklab, var(--shadow-color) 62%, transparent);
+  --shadow-cutout: 0 26px 30px color-mix(in oklab, var(--shadow-color) 62%, transparent);
+
+  --positive: #7fc99a;
+  --positive-foreground: #0a1a10;
+  --warning: #dcae5c;
+  --warning-foreground: #1d1505;
+  --critical: #dd8f86;
+  --critical-foreground: #240d0a;
+  --info: #93b6c4;
+  --info-foreground: #08161c;
+
+  /* The five materials on the board. These are not decoration: each is the
+     measured colour of a sample, and the swatch in the components page and the
+     photograph on /rooms are the same decision. */
+  --material-slate: #4a5157;
+  --material-oak: #b98b4e;
+  --material-wool: #cbc1ac;
+  --material-plaster: #e8e2d6;
+  --material-brass: #c9a227;
+
+  /* ── ink that does not invert ──────────────────────────────────────────
+     The photographs stay dark in both modes (AGENTS.md §The one sanctioned
+     deviation), so type sitting ON a plate cannot use --foreground: in light
+     mode that resolves to near-black and lands on a dusk estuary, which is how
+     the first light-mode capture came back with an invisible headline.
+     These three are identical in both blocks, deliberately. If a value here
+     ever differs between the two blocks, the hero is broken in one of them. */
+  --plate-ink: #f4efe4;
+  --plate-ink-muted: #cfcabe;
+  --plate-ink-brass: #e0bb4a;
+
+  /* One height for every control on a row together. The input sets 16px
+     text and the button sets 12px mono, so left to their own padding they
+     came out 54.8px and 44.8px — a 10px mismatch that reads as a mistake at
+     any width. 3.5rem is on the spacing ladder (56px) and clears both. */
+  --control-height: 3.5rem;
+
+  --radius: 2px;
+
+  --font-display: var(--font-tideline-display), ui-serif, Georgia, "Times New Roman", serif;
+  --font-text: var(--font-tideline-text), ui-sans-serif, system-ui, Arial, sans-serif;
+  --font-sans: var(--font-text);
+  --font-mono: var(--font-tideline-mono), ui-monospace, SFMono-Regular, Menlo, "Courier New", monospace;
+
+  /* UI ladder — fixed. Readability is not a personality. */
+  --text-caption: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+  --leading-caption: 1.4;
+  --leading-small: 1.45;
+  --leading-body: 1.55;
+  --leading-lead: 1.6;
+
+  /* Display ladder — ratio 1.500 (editorial/brand), anchored at 1.5rem.
+     d1 1.5 · d2 2.25 · d3 3.375 · d4 5.0625. d3/d4 fluid. */
+  --text-d1: 1.5rem;
+  --text-d2: 2.25rem;
+  --text-d3: clamp(2.5rem, 1.6rem + 3.6vw, 3.375rem);
+  --text-d4: clamp(3rem, 1.4rem + 6.4vw, 5.0625rem);
+  --leading-d1: 1.25;
+  --leading-d2: 1.15;
+  --leading-d3: 1.06;
+  --leading-d4: 0.98;
+  /* Tracking tightens as the display size grows — d4 at 5rem needs it, d1 at
+     1.5rem does not and looks cramped if given it. */
+  --tracking-d1: 0.004em;
+  --tracking-d2: -0.006em;
+  --tracking-d3: -0.014em;
+  --tracking-d4: -0.022em;
+  --tracking-eyebrow: 0.22em;
+  --tracking-label: 0.16em;
+  --tracking-wordmark: 0.32em;
+
+  /* One display weight in both modes. It was a 300/400 step until the
+     screenshot gate pointed out that an undemanded weight is an unloaded face
+     (src/fonts.ts has the full story). The dark-mode compensation is carried by
+     the tracking values above instead: light ink on a dark ground reads heavier
+     and tighter, so dark opens the display tracking by 0.004em. */
+  --weight-display: 400;
+  --radius-inner: 1px;
+
+  /* Motion — personality "tidal": slow, one-directional, nothing repeats.
+     No ambient slot is spent (declared deliberately unmoved), so this theme
+     owes no WCAG 2.2.2 pause control. */
+  --ease-house: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-micro: 140ms;
+  --duration-state: 250ms;
+  --duration-entrance: 380ms;
+}
+
+.light,
+.tt-tideline.light {
+  --background: #e8e2d6;
+  --foreground: #191b18;
+  --card: #f3efe6;
+  --card-foreground: #191b18;
+  --surface-raised: #faf7f0;
+  --surface-sunken: #ded7c8;
+
+  --primary: #c9a227;
+  --primary-foreground: #17140a;
+  /* Ramp direction, light mode: also LIGHTER, for the same reason — the ink on
+     the brass is near-black in both modes, so both ramps raise its contrast by
+     lightening. Darkening the brass here measured 3.98:1 and was rejected. */
+  --primary-hover: #d9b243;
+  --primary-active: #e6c364;
+  /* Brass cannot be a graphic on cream (1.88:1). Everything that would be brass
+     ink in dark mode is this token in light mode: 5.35:1 as text, 5.35:1 as a
+     3:1-tier graphic. */
+  --primary-ink: #6f5709;
+  --primary-soft: #ecdfbb;
+  --primary-border: #b79b4d;
+
+  --accent: #ecdfbb;
+  --accent-foreground: #191b18;
+
+  --secondary: #ded7c8;
+  --secondary-foreground: #191b18;
+  --secondary-hover: #d5cdbc;
+  --secondary-active: #cbc2ae;
+
+  --muted: #e0d9cb;
+  --muted-foreground: #585d56;
+
+  --border: #c0b59d;
+  --hairline: #cdc3ac;
+  --ring: #6f5709;
+
+  --field: #faf7f0;
+  --field-border: #b9ad93;
+  --control-border: #6f6754;
+  --selection: #ecdfbb;
+  --selection-border: #b79b4d;
+  --selection-foreground: #191b18;
+
+  --scrim: #080a09;
+  --shadow-color: #4a4436;
+  --shadow-raised: 0 1px 2px color-mix(in oklab, var(--shadow-color) 18%, transparent);
+  --shadow-overlay: 0 18px 40px color-mix(in oklab, var(--shadow-color) 22%, transparent);
+  --shadow-cutout: 0 26px 30px color-mix(in oklab, var(--shadow-color) 26%, transparent);
+
+  --positive: #2f6b47;
+  --positive-foreground: #f3efe6;
+  --warning: #7a5510;
+  --warning-foreground: #f3efe6;
+  --critical: #8d3128;
+  --critical-foreground: #f3efe6;
+  --info: #2b5666;
+  --info-foreground: #f3efe6;
+
+  --material-slate: #4a5157;
+  --material-oak: #b98b4e;
+  --material-wool: #cbc1ac;
+  --material-plaster: #e8e2d6;
+  --material-brass: #c9a227;
+
+  /* ── ink that does not invert ──────────────────────────────────────────
+     The photographs stay dark in both modes (AGENTS.md §The one sanctioned
+     deviation), so type sitting ON a plate cannot use --foreground: in light
+     mode that resolves to near-black and lands on a dusk estuary, which is how
+     the first light-mode capture came back with an invisible headline.
+     These three are identical in both blocks, deliberately. If a value here
+     ever differs between the two blocks, the hero is broken in one of them. */
+  --plate-ink: #f4efe4;
+  --plate-ink-muted: #cfcabe;
+  --plate-ink-brass: #e0bb4a;
+
+  /* The optical correction, and the only place the two modes' type differs:
+     dark ink on a light ground reads lighter, so light mode closes the display
+     tracking back up by 0.004em. Same correction the weight step used to make,
+     at no extra font file. */
+  --tracking-d1: 0em;
+  --tracking-d2: -0.01em;
+  --tracking-d3: -0.018em;
+  --tracking-d4: -0.026em;
+}
+
+/* ---- motion ----
+   CONTRACT amendment A: keyframes and the single-purpose classes that apply
+   them may live here, namespaced with the slug, and nothing else.
+
+   One entrance, one shape. `tideline-rise` is a 12px lift and a fade over
+   380ms on the house curve — inside the entrance class's 300–400ms and well
+   inside its ≤16px distance.
+
+   The deviation, declared: the vocabulary says entrances fire "on first paint
+   only". This theme fires each one **once, on first view**, driven by an
+   IntersectionObserver that unobserves the element immediately. On a page whose
+   entire argument is photography two and three folds down, an entrance that
+   already played before the reader arrived has communicated nothing. What the
+   floor actually bans is scroll *scrubbing* — parallax, scroll-jacking,
+   re-triggering — and none of those happen here: the observer fires one time
+   per element and disconnects.
+
+   The base style is the FINISHED state. `[data-tl-reveal]` only becomes hidden
+   once the script has confirmed it can animate, so a reader with JavaScript off
+   — or with reduced motion set — gets the complete page, never a blank one. */
+
+@keyframes tideline-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.tideline-armed[data-tl-reveal],
+.tt-tideline .tideline-armed[data-tl-reveal] {
+  opacity: 0;
+}
+
+.tideline-rise,
+.tt-tideline .tideline-rise {
+  animation: tideline-rise var(--duration-entrance) var(--ease-house) both;
+}
+
+/* ── scroll-driven media (owner directive, 2026-08-28) ────────────────────
+   motion-pass lists parallax on marketing surfaces under *what never
+   animates*. The owner lifted that for this theme, and the amendment is
+   recorded in AGENTS.md rather than left implicit — the rule is still the rule
+   for every other theme in the catalog.
+
+   Everything below is **CSS scroll-driven animation**, not a scroll listener:
+
+   · `animation-timeline: view()` / `scroll()` runs on the compositor, off the
+     main thread. There is no scroll handler, nothing to throttle, and nothing
+     that can jank the page by doing work per frame.
+   · The page still scrolls at exactly its native speed. What moves is content
+     *within* a band. That is the distinction the ban is actually about:
+     scroll-JACKING hijacks how far the page travels per wheel tick, and
+     nothing here touches that.
+   · `@supports (animation-timeline: view())` gates the whole block, so a
+     browser without it renders the finished frame. The base style of every
+     element below IS its finished state — the keyframes run *from* the offset
+     position, never to it.
+   · The reduced-motion block at the end switches all of it off, and the
+     finished state is what is left.
+
+   Only `transform` and `opacity` are animated. */
+
+@keyframes tideline-layer-back {
+  to { transform: translate3d(0, 16%, 0) scale(1.08); }
+}
+@keyframes tideline-layer-mid {
+  to { transform: translate3d(0, 7%, 0) scale(1.04); }
+}
+@keyframes tideline-layer-fore {
+  to { transform: translate3d(0, -12%, 0) scale(1.1); }
+}
+/* A plate settling: it enters slightly oversized and comes to rest at 1. The
+   scale is small on purpose — 1.12 reads as the photograph breathing, 1.4
+   reads as a slideshow. */
+@keyframes tideline-settle {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+/* The horizontal rail. Vertical scroll drives horizontal travel, which is the
+   one device here a reader will actually notice; it is bounded to a single
+   band and it never captures the scroll. */
+@keyframes tideline-rail {
+  from { transform: translate3d(2%, 0, 0); }
+  to { transform: translate3d(-46%, 0, 0); }
+}
+/* A full-bleed plate drifting inside its own band: the image is sized past the
+   band on both edges and travels a little against the scroll, which is the
+   background half of a parallax without a second plane to key out. Start and
+   end frames are both fully covered, so a capture holding the start frame gets
+   a correct picture — the reason this replaced a `position: sticky` sequence,
+   which photographed as three blank bands in the very screenshots the
+   marketplace sells the theme with. */
+@keyframes tideline-plate-drift {
+  from { transform: translate3d(0, -7%, 0); }
+  to { transform: translate3d(0, 7%, 0); }
+}
+/* Type over a drifting plate. Transform only — see below. */
+/* Transform only, and no fade — which is a correction, not a preference.
+   A stitched full-page capture holds a scroll timeline at its START frame, so
+   a caption fading up from `opacity: 0` photographs as nothing at all, and the
+   marketplace's own product shots are full-page captures. The fade was also
+   doing no work: each tracker is exactly one screen tall, so only one caption
+   is ever on screen and geometry already guarantees what the fade was there to
+   guarantee. */
+@keyframes tideline-caption {
+  from { transform: translate3d(0, 18px, 0); }
+  to { transform: translate3d(0, -18px, 0); }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .tideline-layer-back,
+    .tt-tideline .tideline-layer-back {
+      animation: tideline-layer-back linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
+    .tideline-layer-mid,
+    .tt-tideline .tideline-layer-mid {
+      animation: tideline-layer-mid linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
+    .tideline-layer-fore,
+    .tt-tideline .tideline-layer-fore {
+      animation: tideline-layer-fore linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
+
+    .tideline-settle,
+    .tt-tideline .tideline-settle {
+      animation: tideline-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 55%;
+    }
+
+    .tideline-rail,
+    .tt-tideline .tideline-rail {
+      animation: tideline-rail linear both;
+      animation-timeline: view();
+      animation-range: entry 100% exit 0%;
+    }
+
+    .tideline-caption,
+    .tt-tideline .tideline-caption {
+      animation: tideline-caption linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    .tideline-plate-drift,
+    .tt-tideline .tideline-plate-drift {
+      animation: tideline-plate-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+/* Print never scrolls either, and a printed page with two blank bands in it is
+   the same defect as a screenshot with two blank bands in it. */
+@media print {
+  .tideline-armed[data-tl-reveal],
+  .tt-tideline .tideline-armed[data-tl-reveal] {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tideline-armed[data-tl-reveal],
+  .tt-tideline .tideline-armed[data-tl-reveal] {
+    opacity: 1;
+  }
+
+  /* Every scroll-driven class as well, and `animation: none` lands each one on
+     its base style — which is its finished state, by construction. */
+  .tideline-rise,
+  .tt-tideline .tideline-rise,
+  .tideline-layer-back,
+  .tt-tideline .tideline-layer-back,
+  .tideline-layer-mid,
+  .tt-tideline .tideline-layer-mid,
+  .tideline-layer-fore,
+  .tt-tideline .tideline-layer-fore,
+  .tideline-settle,
+  .tt-tideline .tideline-settle,
+  .tideline-rail,
+  .tt-tideline .tideline-rail,
+  .tideline-caption,
+  .tt-tideline .tideline-caption,
+  .tideline-plate-drift,
+  .tt-tideline .tideline-plate-drift {
+    animation: none;
+  }
+}
